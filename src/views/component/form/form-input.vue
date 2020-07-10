@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import emitter from '../../../mixins/emitter'
+import emitter from '@/mixins/emitter'
 export default {
   inheritAttrs: false,
   mixins: [emitter],

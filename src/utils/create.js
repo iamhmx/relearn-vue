@@ -3,7 +3,7 @@
  * @Date: 2020-07-08 16:44:15
  */
 import Vue from 'vue'
-import Notice from "../components/notice.vue";
+import Notice from "@/components/Notice.vue";
 
 function create(Component, props) {
     // 传入组件配置项，调用extend，得到组件构造方法
@@ -26,6 +26,12 @@ export default {
             const notice = create(Notice, options)
             notice.show()
             return notice
+        }
+        Vue.prototype.$notice.success = (options) => {
+            return Vue.prototype.$notice(Object.assign(options, { type: 'success' }))
+        }
+        Vue.prototype.$notice.error = (options) => {
+            return Vue.prototype.$notice(Object.assign(options, { type: 'error' }))
         }
     }
 }

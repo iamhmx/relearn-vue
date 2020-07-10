@@ -4,14 +4,16 @@
 --> 
 <template>
   <div>
-    <h2>封装form组件</h2>
     <div class="form-container">
-      <div class="desc-form">
-        form组件：统一管理model、rules，统一校验
-        <div class="desc-form-item">
-          form-item组件：处理label、error，实现单个校验方法
-          <div class="desc-form-input">
-            form-input组件：实现v-model，和model数据做双向绑定，触发验证
+      <div class="desc-form form">
+        form组件：
+        <div>统一管理model、rules，统一校验</div>
+        <div class="desc-form item">
+          form-item组件：
+          <div>处理label、error，实现单个校验方法</div>
+          <div class="desc-form input">
+            form-input组件：
+            <div>实现v-model，和model数据做双向绑定，触发验证</div>
           </div>
         </div>
       </div>
@@ -66,12 +68,19 @@ export default {
   methods: {
     login() {
       this.$refs.form.validate(valid => {
-        this.$notice({
-          title: '提示',
-          type: valid ? 'success' : 'error',
-          content: valid ? '登录' : '校验没通过',
-          duration: 3000
-        })
+        if (valid) {
+          this.$notice.success({
+            title: '提示',
+            content: '成功了'
+          })
+        } else {
+          this.$notice({
+            title: '提示',
+            type: 'error',
+            content: '校验没通过',
+            duration: 3000
+          })
+        }
       })
     }
   }
@@ -83,31 +92,31 @@ export default {
   display: flex;
   flex-direction: row;
   .desc-form {
-    padding: 5px;
+    padding: 10px;
     text-align: left;
     font-size: 12px;
+    color: #fff;
+    border-radius: 4px;
+  }
+  .form {
     width: 400px;
     height: 200px;
-    background: orange;
+    background: rgb(22, 176, 122);
     position: relative;
-    .desc-form-item {
+    .item {
       position: absolute;
-      padding: 5px;
-      color: #fff;
-      top: 30px;
-      right: 20px;
-      left: 20px;
-      bottom: 30px;
-      background: green;
-      .desc-form-input {
+      top: 50px;
+      right: 30px;
+      left: 30px;
+      bottom: 10px;
+      background: rgb(230, 92, 94);
+      .input {
         position: absolute;
-        padding: 5px;
-        color: #000;
-        top: 30px;
-        right: 20px;
-        left: 20px;
-        bottom: 30px;
-        background: yellow;
+        top: 50px;
+        right: 30px;
+        left: 30px;
+        bottom: 10px;
+        background: rgb(132, 112, 184);
       }
     }
   }
