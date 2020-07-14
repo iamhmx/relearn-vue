@@ -4,5 +4,7 @@
  */
 import Vue from "vue";
 import Point from "./Point.vue";
+import Svg from "./Svg.vue";
 
 Vue.component('point', Point)
+Vue.component('svg-icon', Svg)

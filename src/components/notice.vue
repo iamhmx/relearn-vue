@@ -3,11 +3,13 @@
  * @Date: 2020-07-08 16:39:11
 --> 
 <template>
-  <div v-if="isShow"
-       class="notice-container">
-    <div class="notice-content"
-         :style="sty">{{title}}：{{content}}</div>
-  </div>
+  <transition name="fade">
+    <div v-if="isShow"
+         class="notice-container">
+      <div class="notice-content"
+           :style="sty">{{title}}：{{content}}</div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -59,6 +61,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
 .notice-container {
   background: rgba($color: #2e2e2e, $alpha: 0.2);
   position: fixed;
@@ -67,6 +77,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 9999;
   .notice-content {
     color: #222;
     font-size: 14px;

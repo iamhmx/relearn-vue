@@ -8,8 +8,10 @@
          :style="{paddingLeft: (level - 1) * 15 + 'px'}">
       <div class="sider-bar-item"
            @click="click">
-        <span :class="['link', active]">{{model.title}}</span>
-        <span v-if="isFolder">{{open ? '-' : '+'}}</span>
+        <span :class="['link', active, isFolderAndActive ? 'active-folder' : '']">{{model.title}}</span>
+        <svg-icon v-if="isFolder"
+                  :class="['arrow', open ? 'up' : 'down']"
+                  icon="arrow_down"></svg-icon>
       </div>
     </div>
     <div v-if="isFolder"
@@ -51,12 +53,20 @@ export default {
       }
     }
   },
-  created() {
-    console.log('model：', this.model)
-  },
   computed: {
     isFolder() {
       return this.model.children && this.model.children.length
+    },
+    isFolderAndActive() {
+      if (this.isFolder) {
+        for (let i = 0; i < this.model.children.length; i++) {
+          const c = this.model.children[i]
+          if (this.$route.path === c.path) {
+            return true
+          }
+        }
+      }
+      return false
     },
     href() {
       return this.isFolder ? 'javascript:void(0)' : this.model.path
@@ -95,6 +105,18 @@ export default {
     }
     .active {
       color: rgb(65, 184, 131);
+    }
+    .active-folder {
+      color: rgb(65, 184, 131);
+    }
+    .arrow {
+      transition: transform 0.3s;
+    }
+    .down {
+      transform: rotateZ(180deg);
+    }
+    .up {
+      transform: rotateZ(0deg);
     }
     &:hover {
       .link {

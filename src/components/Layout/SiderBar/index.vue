@@ -22,8 +22,9 @@ export default {
   },
   created() {
     let routes = this.$root.$options.router.options.routes
+    // add meta.title to route
     this.data = this.handleRoutes(routes)
-    console.log('routes：', this.data)
+    // console.log('routes：', this.data)
   },
   methods: {
     handleRoutes(routes) {
