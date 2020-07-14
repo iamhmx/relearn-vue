@@ -35,19 +35,33 @@ export default {
   flex-direction: row;
   height: 100%;
   .layout-sider-bar {
-    width: 200px;
+    width: 208px;
+    min-width: 208px;
+    max-width: 208px;
+    flex: 0 0 208px;
     height: 100%;
     background: #fff;
     border-right: $border;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
   }
   .layout-right {
-    flex-grow: 1;
+    flex: auto;
+    margin-left: 208px;
+    position: relative;
     .layout-title {
       padding: 20px;
       border-bottom: $border;
     }
     .layout-content {
       padding: 20px;
+      margin: 0 auto;
+      width: 800px;
+      min-width: 800px;
+      text-align: left;
+      height: auto;
     }
   }
 }

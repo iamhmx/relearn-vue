@@ -4,10 +4,7 @@
 --> 
 <template>
   <div>
-    <div>父组件传入的props：key为name，值为{{name}}</div>
-    <p>
-      <button @click="clickHandle">点我调用$emit</button>
-    </p>
+    <button @click="clickHandle">Try it!</button>
   </div>
 </template>
 
@@ -21,7 +18,7 @@ export default {
   },
   methods: {
     clickHandle() {
-      this.$emit('click', `hello ${this.name}`)
+      this.$emit('clickChild', `hello ${this.name}`)
     }
   }
 }

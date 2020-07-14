@@ -1,0 +1,72 @@
+pre {
+    margin: 1em 0;
+
+    code {
+        background-color: #f8f8f8;
+        overflow-x: auto;
+        color: #525252;
+        white-space: pre;
+        padding: 1.2em 1.4em;
+        font-size: 0.85rem;
+        line-height: 1.6rem;
+        display: block;
+        margin: 0 2px;
+        border-radius: 2px;
+        position: relative;
+        text-align: left;
+    }
+
+    .rl-html {
+        ::before {
+            content: 'html';
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #ccc;
+            text-align: right;
+            font-size: 1em;
+            padding: 5px 10px 0;
+            line-height: 15px;
+            height: 15px;
+            font-weight: 600;
+        }
+    }
+
+    .rl-js {
+        &::before {
+            content: 'JS';
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #ccc;
+            text-align: right;
+            font-size: 1em;
+            padding: 5px 10px 0;
+            line-height: 15px;
+            height: 15px;
+            font-weight: 600;
+        }
+    }
+}
+
+.rl-comment {
+    color: #707070;
+}
+
+.rl-tag {
+    color: $tag-color;
+}
+
+.rl-string {
+    color: $string-color;
+}
+
+.rl-keyword {
+    color: $keyword;
+}
+
+.rl-point {
+    color: #ec1e1e;
+    font-size: 14px;
+    padding: 20px 0;
+}
