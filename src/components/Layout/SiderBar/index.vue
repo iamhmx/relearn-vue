@@ -4,7 +4,9 @@
 --> 
 <template>
   <div class="sider-bar">
-    <div class="logo">Relearn<span>V</span>ue</div>
+    <!-- <div class="logo">Relearn<span>V</span>ue</div> -->
+    <svg-icon icon="logo"
+              style="width: 90%; height: 50px;"></svg-icon>
     <tree :data="data"></tree>
   </div>
 </template>

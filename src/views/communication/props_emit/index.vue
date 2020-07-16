@@ -4,8 +4,8 @@
 --> 
 <template>
   <div>
+    <sub-title>父组件</sub-title>
     <pre>
-      父组件
       <code class="rl-html">
         <span class="rl-comment">{{comment('父组件，给子组件child传入name属性，值为vue')}}</span>
         <span class="rl-tag">{{tag3('child')}} <span>name=</span><span class="rl-string">"vue" </span><span>@clickChild=</span><span class="rl-string">"handleEmit"</span>></span><span class="rl-tag">{{tag2('child')}}</span>
@@ -20,8 +20,8 @@
         <span>}</span>
       </code>
     </pre>
+    <sub-title>子组件</sub-title>
     <pre>
-      子组件
       <code class="rl-html">
         <span class="rl-comment">{{comment('子组件派发一个名为clickChild')}}</span>
         <span class="rl-tag">{{tag3('button')}} <span>@click=</span><span class="rl-string">"clickHandle"</span>></span>Try it!<span class="rl-tag">{{tag2('button')}}</span>

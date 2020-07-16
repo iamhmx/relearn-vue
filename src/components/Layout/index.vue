@@ -62,6 +62,7 @@ export default {
       min-width: 800px;
       text-align: left;
       height: auto;
+      font-size: 14px;
     }
   }
 }

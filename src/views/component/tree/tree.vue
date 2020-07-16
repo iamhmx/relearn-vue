@@ -4,6 +4,7 @@
 --> 
 <template>
   <div class="tree">
+    <!-- 遍历显示一级节点 -->
     <tree-node v-for="item in data"
                :key="item.title"
                :model="item"></tree-node>
@@ -17,6 +18,7 @@ export default {
     'tree-node': node
   },
   props: {
+    // 数据
     data: {
       type: Array,
       required: true

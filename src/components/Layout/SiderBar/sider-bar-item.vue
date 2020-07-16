@@ -5,12 +5,13 @@
 <template>
   <div class="sider-bar-item-container">
     <div @click="toggle"
+         :class="activeBg"
          :style="{paddingLeft: (level - 1) * 15 + 'px'}">
       <div class="sider-bar-item"
            @click="click">
-        <span :class="['link', active, isFolderAndActive ? 'active-folder' : '']">{{model.title}}</span>
+        <span :class="['link', activeCls]">{{model.title}}</span>
         <svg-icon v-if="isFolder"
-                  :class="['arrow', open ? 'up' : 'down']"
+                  :class="['arrow', open ? 'up' : 'down', activeCls]"
                   icon="arrow_down"></svg-icon>
       </div>
     </div>
@@ -38,17 +39,21 @@ export default {
   data() {
     return {
       open: false,
-      active: ''
+      active: false
     }
   },
   watch: {
     $route: {
       immediate: true,
       handler() {
-        if (this.$route.path === this.model.path) {
-          this.active = 'active'
+        if (
+          this.$route.matched
+            .map(item => item['path'])
+            .includes(this.model.path)
+        ) {
+          this.active = true
         } else {
-          this.active = ''
+          this.active = false
         }
       }
     }
@@ -57,16 +62,14 @@ export default {
     isFolder() {
       return this.model.children && this.model.children.length
     },
-    isFolderAndActive() {
-      if (this.isFolder) {
-        for (let i = 0; i < this.model.children.length; i++) {
-          const c = this.model.children[i]
-          if (this.$route.path === c.path) {
-            return true
-          }
-        }
+    activeCls() {
+      return this.active ? 'active' : ''
+    },
+    activeBg() {
+      if (this.active && !this.isFolder) {
+        return 'active-bg'
       }
-      return false
+      return ''
     },
     href() {
       return this.isFolder ? 'javascript:void(0)' : this.model.path
@@ -123,6 +126,9 @@ export default {
         color: rgb(65, 184, 131);
       }
     }
+  }
+  .active-bg {
+    background: rgba(65, 184, 131, 0.1);
   }
 }
 </style>
