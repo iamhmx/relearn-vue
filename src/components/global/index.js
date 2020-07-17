@@ -4,5 +4,5 @@
  */
 import { registerGlobalComp } from "@/utils";
 
-// 自动注册全剧组件
+// 自动注册全局组件
 registerGlobalComp();

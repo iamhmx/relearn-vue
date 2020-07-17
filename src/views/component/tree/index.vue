@@ -22,11 +22,11 @@
         <span>]</span>
       </code>
     </pre>
-    <sub-title>tree组件：</sub-title>
+    <sub-title>tree组件实现，tree.vue：</sub-title>
     <rl-img imgName="tree" />
-    <sub-title>tree-node组件，template：</sub-title>
+    <sub-title>tree-node组件实现，tree-node.vue，template：</sub-title>
     <rl-img imgName="tree-node-template" />
-    <sub-title>tree-node组件，js：</sub-title>
+    <sub-title>tree-node.vue，js：</sub-title>
     <rl-img imgName="tree-node-js" />
     <div style="padding: 20px 20px 100px 20px;">
       <sub-title>实现效果（左侧菜单就是一个tree，只是多了些样式）：</sub-title>
