@@ -4,17 +4,28 @@
 --> 
 <template>
   <div>
-    <p>父组件可以通过<strong>$children</strong>访问子组件实例，第一个子组件，this.$children[0]</p>
-    <!-- 用节点包裹子组件，同样可以通过$children拿到实例 -->
+    <sub-title>层级关系：</sub-title>
+    <rl-desc :des="desData"></rl-desc>
+    <!-- 用标签包裹子组件，同样可以通过$children拿到实例 -->
     <div>
       <child name='child1'>
         <!-- 子组件包裹子组件，里面的子组件就不是当前组件的孩子了，是孙子了 -->
         <child name='child2'></child>
       </child>
     </div>
-    <p>子组件可以通过<strong>$parent</strong>访问父组件实例，this.$children[0].$parent === this</p>
-    <p>子组件可以通过<strong>$root</strong>访问祖先组件实例，this.$children[0].$root === this.$root</p>
-    <p class="tips">注：$children是一个存放子组件的数组，但不保证子组件顺序</p>
+    <p>子组件可以通过<strong>$parent</strong>访问父组件实例</p>
+    <pre>
+      <code class="rl-js">
+        <span class="rl-keyword">this</span>.$children[0].$parent === <span class="rl-keyword">this</span>
+      </code>
+    </pre>
+    <p>子组件可以通过<strong>$root</strong>访问祖先组件实例</p>
+    <pre>
+      <code class="rl-js">
+        <span class="rl-keyword">this</span>.$children[0].$root === <span class="rl-keyword">this</span><span>.$root</span>
+      </code>
+    </pre>
+    <point class="tips">$children是一个存放子组件的数组，但不保证子组件顺序</point>
   </div>
 </template>
 
@@ -27,7 +38,23 @@ export default {
   data() {
     return {
       des: '',
-      show: false
+      show: false,
+      desData: [
+        {
+          title: '父组件：parent',
+          content:
+            '可以通过this.$children访问子组件实例，this.$children可以拿到child1，但拿不到child2'
+        },
+        {
+          title: '孩子组件：child1',
+          content:
+            '可以通过this.$children访问他的子组件实例child2，this.$parent可以访问父组件parent'
+        },
+        {
+          title: '孙子组件：child2',
+          content: ''
+        }
+      ]
     }
   },
   mounted() {

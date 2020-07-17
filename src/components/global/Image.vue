@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'rl-img',
   props: {
     imgName: {
       type: String,

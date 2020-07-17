@@ -1,26 +1,5 @@
 # 重学vue
+![logo](http://relearnvue.com/logo.svg )
+vue学习项目，包含组件通信、组件化、全家桶、响应式等内容，持续更新，欢迎pr。
+### 项目地址：http://relearnvue.com
 
-## Project setup
-```
-yarn
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Zip your resource
-```
-yarn zip
-```

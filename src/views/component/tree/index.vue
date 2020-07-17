@@ -5,14 +5,7 @@
 <template>
   <div class="tree-container">
     <sub-title>组件设计：</sub-title>
-    <div class="desc-tree tree-root">
-      tree组件：
-      <div>管理tree数据data，遍历data，显示一级节点</div>
-      <div class="desc-tree tree-node-item">
-        tree-node组件：
-        <div>显示子节点，如果该子节点也有children，递归展示其所有子节点，直到所有节点都是叶子节点</div>
-      </div>
-    </div>
+    <rl-desc :des="desData"></rl-desc>
     <sub-title>数据格式：</sub-title>
     <pre>
       <code class="rl-js">
@@ -50,6 +43,17 @@ export default {
   },
   data() {
     return {
+      desData: [
+        {
+          title: 'tree组件：',
+          content: '管理tree数据data，遍历data，显示一级节点'
+        },
+        {
+          title: 'tree-node组件：',
+          content:
+            '显示子节点，如果该子节点也有children，递归展示其所有子节点，直到所有节点都是叶子节点'
+        }
+      ],
       treeData: [
         {
           title: '我是一级节点a',

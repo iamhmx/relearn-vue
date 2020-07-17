@@ -18,16 +18,7 @@ const component = {
             name: 'form',
             component: () => import('../views/component/form'),
             meta: {
-                title: '封装form组件'
-            }
-        },
-        {
-
-            path: '/component/notice',
-            name: 'notice',
-            component: () => import('../views/component/notice'),
-            meta: {
-                title: '实现消息提示插件notice'
+                title: '封装表单组件form'
             }
         },
         {
@@ -37,6 +28,15 @@ const component = {
             component: () => import('../views/component/tree/index.vue'),
             meta: {
                 title: '实现树组件tree'
+            }
+        },
+        {
+
+            path: '/component/notice',
+            name: 'notice',
+            component: () => import('../views/component/notice'),
+            meta: {
+                title: '实现消息提示插件notice'
             }
         }
     ]

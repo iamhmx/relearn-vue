@@ -11,7 +11,7 @@
         <g id="编组-15">
             <circle id="椭圆形" fill-opacity="0.147727273" fill="#333333" cx="124" cy="126" r="117"></circle>
             <circle id="椭圆形" fill="url(#linearGradient-1)" cx="117" cy="117" r="117"></circle>
-            <polygon id="星形" fill="#FFFFFF" points="76 67 65.4198655 72.5623059 67.4404914 60.7811529 58.8809827 52.4376941 70.7099327 50.7188471 76 40 81.2900673 50.7188471 93.1190173 52.4376941 84.5595086 60.7811529 86.5801345 72.5623059"></polygon>
+            <path d="M69,38.1297757 L65.217536,45.7938849 L56.7596893,47.022882 L62.8798447,52.988559 L61.435072,61.4122302 L69,57.4351121 L76.564928,61.4122302 L75.1201553,52.988559 L81.2403107,47.022882 L72.782464,45.7938849 L69,38.1297757 Z" id="星形" stroke="#979797" fill="#FFFFFF"></path>
             <text id="elearn" font-family="PingFangSC-Medium, PingFang SC" font-size="166" font-weight="400">
                 <tspan x="238" y="206" fill="#333333">elearn</tspan>
                 <tspan x="718.57" y="206" font-family="HiraginoSansGB-W6, Hiragino Sans GB" font-weight="500" fill="#22BE35">  </tspan>

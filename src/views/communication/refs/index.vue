@@ -4,10 +4,19 @@
 --> 
 <template>
   <div>
-    <child ref="child">我是子组件，我设置了ref="child"</child>
-    <div ref="div">我是div，我设置了ref="div"</div>
-    <p>通过this.$refs，可以获取到所有设置了ref属性的子组件和子节点</p>
-    <p class="tips">注：$children和$refs的区别是：前者只能获取子组件，后者可以获取到设置了ref属性的所有子组件和子节点</p>
+    <sub-title>dom结构：</sub-title>
+    <rl-img imgName="refs"></rl-img>
+    <sub-title>打印this.$refs结果：</sub-title>
+    <rl-img imgName="refs-result"></rl-img>
+    <!-- 子组件 -->
+    <child ref="child"></child>
+    <!-- 子节点 -->
+    <div ref="div1">
+      <!-- 子孙节点 -->
+      <div ref=div2></div>
+    </div>
+    <p>通过this.$refs，可以获取到所有设置了ref属性的子组件、子孙组件、子节点以及子孙节点</p>
+    <point>$children和$refs的区别是：前者只能获取子组件</point>
   </div>
 </template>
 
@@ -16,6 +25,9 @@ import child from './child'
 export default {
   components: {
     child
+  },
+  mounted() {
+    console.log('refs：', this.$refs)
   }
 }
 </script>
