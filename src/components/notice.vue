@@ -37,14 +37,18 @@ export default {
   },
   computed: {
     sty() {
-      let bgColor = '#fff'
+      let bgColor = '#e9e9eb'
+      let color = '#909399'
       if (this.type === 'success') {
-        bgColor = '#bfecb4'
+        bgColor = '#e1f3d8'
+        color = '#67c23a'
       } else if (this.type === 'error') {
-        bgColor = '#eb968b'
+        bgColor = '#fde2e2'
+        color = '#f56c6c'
       }
       return {
-        backgroundColor: bgColor
+        backgroundColor: bgColor,
+        color
       }
     }
   },
@@ -70,7 +74,7 @@ export default {
   transition: opacity 0.2s;
 }
 .notice-container {
-  background: rgba($color: #2e2e2e, $alpha: 0.2);
+  background: rgba($color: #2e2e2e, $alpha: 0.01);
   position: fixed;
   text-align: center;
   top: 0;
@@ -79,7 +83,7 @@ export default {
   bottom: 0;
   z-index: 9999;
   .notice-content {
-    color: #222;
+    color: #fff;
     font-size: 14px;
     background-color: #fff;
     margin-top: 20px;

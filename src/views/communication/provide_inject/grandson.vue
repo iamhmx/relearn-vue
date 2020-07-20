@@ -4,18 +4,18 @@
 --> 
 <template>
   <div>
-    <p>孙子组件，直接注入的data：{{grandsonCount}}</p>
-    <p style="color: orange;">孙子组件，注入的父组件实例：{{parent.parentCount}}</p>
+    <p>孙子组件，显示注入的count：{{count}}</p>
+    <p class="reactive">孙子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Grandson',
+  // 注入数据，可以直接使用数组的形式，inject: ['count', 'parent']
   inject: {
-    grandsonCount: {
-      from: 'count',
-      default: 0
+    count: {
+      from: 'count'
     },
     parent: {
       from: 'parent'
@@ -25,4 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.reactive {
+  color: $primary-color;
+}
 </style>

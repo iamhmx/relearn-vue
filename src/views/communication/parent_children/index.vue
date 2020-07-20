@@ -4,6 +4,7 @@
 --> 
 <template>
   <div>
+    常用于父子组件之间通信，兄弟组件之间通信也可以通过共同的父组件进行搭桥通信。
     <sub-title>层级关系：</sub-title>
     <rl-desc :des="desData"></rl-desc>
     <!-- 用标签包裹子组件，同样可以通过$children拿到实例 -->
@@ -13,7 +14,7 @@
         <child name='child2'></child>
       </child>
     </div>
-    <p>子组件可以通过<strong>$parent</strong>访问父组件实例</p>
+    <p>子组件可以通过<strong>$parent</strong>访问父组件实例，从而可以访问父组件的属性，调用父组件方法。</p>
     <pre>
       <code class="rl-js">
         <span class="rl-keyword">this</span>.$children[0].$parent === <span class="rl-keyword">this</span>

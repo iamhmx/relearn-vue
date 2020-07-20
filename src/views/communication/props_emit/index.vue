@@ -4,7 +4,8 @@
 --> 
 <template>
   <div>
-    <sub-title>父组件</sub-title>
+    常用于父子组件之间传值，不适合层级太深的父子组件通信。
+    <sub-title>父组件：</sub-title>
     <pre>
       <code class="rl-html">
         <span class="rl-comment">{{comment('父组件，给子组件child传入name属性，值为vue')}}</span>
@@ -20,7 +21,7 @@
         <span>}</span>
       </code>
     </pre>
-    <sub-title>子组件</sub-title>
+    <sub-title>子组件：</sub-title>
     <pre>
       <code class="rl-html">
         <span class="rl-comment">{{comment('子组件派发一个名为clickChild')}}</span>

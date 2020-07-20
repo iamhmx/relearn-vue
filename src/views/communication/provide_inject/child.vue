@@ -4,15 +4,18 @@
 --> 
 <template>
   <div>
-    <p>孩子组件，直接注入的data：{{childCount}}</p>
-    <p style="color: orange;">孩子组件，注入的父组件实例：{{parent.parentCount}}</p>
+    <p>孩子组件，显示注入的count：{{childCount}}</p>
+    <p class="reactive">孩子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Child',
+  // 注入数据，可以直接使用数组的形式
+  // inject: ['count', 'parent']
   inject: {
+    // 取别名、设置默认值
     childCount: {
       from: 'count',
       default: 0
@@ -25,4 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.reactive {
+  color: $primary-color;
+}
 </style>

@@ -1,6 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-16 17:26:52
+ * 图片展示组件
 --> 
 <template>
   <div class="rl-image-box">

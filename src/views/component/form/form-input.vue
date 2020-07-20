@@ -3,7 +3,7 @@
  * @Date: 2020-07-07 15:46:10
 --> 
 <template>
-  <div>
+  <div class="form-input-container">
     <!-- 自定义组件实现v-model：接收一个value，emit一个input事件 -->
     <input class="input"
            :value="value"
@@ -39,11 +39,15 @@ export default {
 }
 </script>
 
-<style scoped>
-.input {
-  height: 20px;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-  padding: 5px;
+<style lang="scss" scoped>
+.form-input-container {
+  flex: auto;
+  .input {
+    width: 100%;
+    height: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: 5px;
+  }
 }
 </style>

@@ -4,7 +4,7 @@
 --> 
 <template>
   <div>
-    <button @click="clickHandle">Try it!</button>
+    <button @click="clickHandle">Try it</button>
   </div>
 </template>
 

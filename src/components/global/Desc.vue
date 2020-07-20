@@ -15,7 +15,7 @@
 </template>
 
 <script>
-const colors = ['#16B07A', '#E65C5E', '#8470B8', '#3B56A0']
+const colors = ['#3c8dbc', '#00c0ef', '#00a65a', '#f39c12']
 export default {
   name: 'rl-desc',
   props: {

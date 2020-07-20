@@ -5,38 +5,32 @@
 <template>
   <div>
     <div class="form-container">
-      <div class="desc-form form">
-        form组件：
-        <div>统一管理model、rules，统一校验</div>
-        <div class="desc-form item">
-          form-item组件：
-          <div>处理label、error，实现单个校验方法</div>
-          <div class="desc-form input">
-            form-input组件：
-            <div>实现v-model，和model数据做双向绑定，触发验证</div>
-          </div>
-        </div>
+      <sub-title>组件设计：</sub-title>
+      <rl-desc :des="desData"></rl-desc>
+      <sub-title>实现效果：</sub-title>
+      <div class="effect">
+        <MForm ref="form"
+               :model="model"
+               :rules="rules"
+               label-position="right"
+               label-width="100px">
+          <MFormItem label="用户名："
+                     prop="username">
+            <MFormInput v-model="model.username"
+                        placeholder="请输入用户名"></MFormInput>
+          </MFormItem>
+          <MFormItem label="密码："
+                     prop="password">
+            <MFormInput type="password"
+                        v-model="model.password"
+                        placeholder="请输入密码"></MFormInput>
+          </MFormItem>
+          <MFormItem>
+            <button @click="login">登录</button>
+          </MFormItem>
+        </MForm>
       </div>
-      <MForm ref="form"
-             :model="model"
-             :rules="rules"
-             label-position="right"
-             label-width="100px">
-        <MFormItem label="用户名："
-                   prop="username">
-          <MFormInput v-model="model.username"
-                      placeholder="请输入用户名"></MFormInput>
-        </MFormItem>
-        <MFormItem label="密码："
-                   prop="password">
-          <MFormInput type="password"
-                      v-model="model.password"
-                      placeholder="请输入密码"></MFormInput>
-        </MFormItem>
-        <MFormItem>
-          <button @click="login">登录</button>
-        </MFormItem>
-      </MForm>
+
     </div>
   </div>
 
@@ -55,6 +49,20 @@ export default {
   },
   data() {
     return {
+      desData: [
+        {
+          title: 'form组件：',
+          content: '统一管理model、rules，统一校验'
+        },
+        {
+          title: 'form-item组件：',
+          content: '处理label、error，实现单个校验方法'
+        },
+        {
+          title: 'form-input组件：',
+          content: '实现v-model，和model数据做双向绑定，触发验证'
+        }
+      ],
       model: {
         username: '',
         password: ''
@@ -89,36 +97,9 @@ export default {
 
 <style lang="scss" scoped>
 .form-container {
-  display: flex;
-  flex-direction: row;
-  .desc-form {
-    padding: 10px;
-    text-align: left;
-    font-size: 12px;
-    color: #fff;
-    border-radius: 4px;
-  }
-  .form {
-    width: 400px;
-    height: 200px;
-    background: rgb(22, 176, 122);
-    position: relative;
-    .item {
-      position: absolute;
-      top: 50px;
-      right: 30px;
-      left: 30px;
-      bottom: 10px;
-      background: rgb(230, 92, 94);
-      .input {
-        position: absolute;
-        top: 50px;
-        right: 30px;
-        left: 30px;
-        bottom: 10px;
-        background: rgb(132, 112, 184);
-      }
-    }
+  .effect {
+    width: 500px;
+    padding-left: 95px;
   }
 }
 </style>

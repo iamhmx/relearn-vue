@@ -3,16 +3,32 @@
  * @Date: 2020-07-09 17:48:47
  */
 const path = require('path')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+    publicPath: isProd ? '/' : '/',
+    configureWebpack: config => {
+        // 线上开启压缩
+        if (isProd) {
+            config.plugins.push(
+                new CompressionWebpackPlugin({
+                    test: /\.js$|\.html$|\.css$/,
+                    threshold: 4096 // 超过4kb，开启压缩
+                })
+            )
+        }
+    },
     chainWebpack: config => {
+        // 设置别名
         config.resolve.alias.set('@', resolve('src'))
-        config.module.rules.delete("svg"); //重点:删除默认配置中处理svg,
+        // 配置svg-loader
+        config.module.rules.delete("svg"); // 删除默认配置中处理svg,
         config.module
             .rule('svg-sprite-loader')
             .test(/\.svg$/)

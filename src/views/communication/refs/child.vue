@@ -4,12 +4,23 @@
 --> 
 <template>
   <div>
-    <slot></slot>
+    子组件的count：{{count}}
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    add() {
+      this.count++
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
