@@ -5,6 +5,7 @@ import router from './router'
 import plugins from "./utils/create";
 // 全局样式
 import "@/styles/global.scss";
+// 混入代码显示相关内容
 import code from "@/mixins/code";
 // 全局组件
 import "@/components/global";

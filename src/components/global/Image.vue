@@ -47,6 +47,7 @@ export default {
       const top = (document.body.clientHeight - height) / 2
       const left = (document.body.clientWidth - width) / 2
       this.bigImgStyle = {
+        borderRadius: '4px',
         width: '700px',
         marginLeft: left + 'px',
         marginTop: top < 0 ? 0 : top + 'px',
@@ -88,17 +89,19 @@ export default {
     }
   }
   .show-big-enter-active {
-    animation: show-in 0.1s;
+    animation: show-in 0.2s ease-in;
   }
   .show-big-leave-active {
-    animation: show-in 0.1s reverse;
+    animation: show-in 0.2s reverse;
   }
   @keyframes show-in {
     0% {
       transform: scale(0);
+      opacity: 0;
     }
     100% {
       transform: scale(1, 1, 1);
+      opacity: 1;
     }
   }
 }

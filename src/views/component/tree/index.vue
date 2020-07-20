@@ -22,6 +22,12 @@
         <span>]</span>
       </code>
     </pre>
+    <sub-title>组件使用：</sub-title>
+    <pre>
+      <code class="rl-js">
+        <span class="rl-tag">{{tag3('tree')}} </span>:data="<span class="rl-string">treeData</span>"<span class="rl-tag">>{{tag2('tree')}}</span>
+      </code>
+    </pre>
     <sub-title>tree组件实现，tree.vue：</sub-title>
     <rl-img imgName="tree" />
     <sub-title>tree-node组件实现，tree-node.vue，template：</sub-title>
@@ -51,7 +57,7 @@ export default {
         {
           title: 'tree-node组件：',
           content:
-            '显示子节点，如果该子节点也有children，递归展示其所有子节点，直到所有节点都是叶子节点'
+            '显示子节点，如果该子节点也有children，递归展示其所有子节点，直到所有节点都是叶子节点（即：没有children或children为空）'
         }
       ],
       treeData: [

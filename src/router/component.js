@@ -10,6 +10,7 @@ const component = {
     component: Layout,
     meta: {
         title: '组件化',
+        icon: 'component'
     },
     children: [
         {

@@ -10,6 +10,7 @@ const bucket = {
     component: Layout,
     meta: {
         title: '全家桶',
+        icon: 'bucket'
     },
     children: [
         {

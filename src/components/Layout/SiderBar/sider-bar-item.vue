@@ -9,7 +9,13 @@
          :style="{paddingLeft: (level - 1) * 15 + 'px'}">
       <div class="sider-bar-item"
            @click="click">
-        <span :class="['link', activeCls]">{{model.title}}</span>
+        <div>
+          <svg-icon v-if="model.meta.icon"
+                    class="icon"
+                    :icon="model.meta.icon"
+                    :class="activeCls"></svg-icon>
+          <span :class="['link', activeCls]">{{model.title}}</span>
+        </div>
         <svg-icon v-if="isFolder"
                   :class="['arrow', open ? 'up' : 'down', activeCls]"
                   icon="arrow_down"></svg-icon>
@@ -52,6 +58,8 @@ export default {
             .includes(this.model.path)
         ) {
           this.active = true
+          // 默认将匹配到的父级菜单展开
+          this.open = this.isFolder
         } else {
           this.active = false
         }
@@ -102,6 +110,10 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    .icon {
+      margin-right: 5px;
+      transition: color 0.2s;
+    }
     .link {
       color: #222;
       transition: color 0.2s;
@@ -122,7 +134,8 @@ export default {
       transform: rotateZ(0deg);
     }
     &:hover {
-      .link {
+      .link,
+      .icon {
         color: rgb(65, 184, 131);
       }
     }

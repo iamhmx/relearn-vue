@@ -10,6 +10,7 @@ const communicationRoutes = {
     component: Layout,
     meta: {
         title: '组件通信',
+        icon: 'communication'
     },
     children: [
         {
@@ -48,6 +49,15 @@ const communicationRoutes = {
                 title: 'provide & inject',
             }
         },
+        {
+
+            path: '/communication/eventbus',
+            name: 'eventbus',
+            component: () => import('../views/communication/eventbus/index.vue'),
+            meta: {
+                title: 'eventbus',
+            }
+        }
     ]
 }
 export default communicationRoutes
