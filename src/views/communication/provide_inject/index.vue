@@ -4,7 +4,7 @@
 --> 
 <template>
   <div>
-    父组件provide数据，所有后代组件都可以通过inject获得数据，常用于深层次的父子组件通信，封装组件库。
+    <rl-text>父组件provide数据，所有后代组件都可以通过inject获得数据，常用于深层次的父子组件通信，封装组件库。</rl-text>
     <sub-title>父组件：</sub-title>
     <rl-img imgName="provide"></rl-img>
     <sub-title>子组件：</sub-title>

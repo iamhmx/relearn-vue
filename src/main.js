@@ -11,11 +11,13 @@ import code from "@/mixins/code";
 import "@/components/global";
 // 导入svg
 import "@/icons";
+import Bus from "@/views/communication/eventbus/bus"
 
 Vue.use(plugins)
 Vue.mixin(code)
 
 Vue.config.productionTip = false
+Vue.prototype.$bus = new Bus() // new Vue()
 
 new Vue({
   router,

@@ -68,6 +68,7 @@ export default {
 .rl-image-box {
   width: 600px;
   border-radius: 4px;
+  margin-bottom: 10px;
   .image {
     width: 100%;
     border-radius: 4px;

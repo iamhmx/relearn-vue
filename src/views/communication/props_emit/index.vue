@@ -4,7 +4,7 @@
 --> 
 <template>
   <div>
-    常用于父子组件之间传值，不适合层级太深的父子组件通信。
+    <rl-text>常用于父子组件之间传值，不适合层级太深的父子组件通信。</rl-text>
     <sub-title>父组件：</sub-title>
     <pre>
       <code class="rl-html">

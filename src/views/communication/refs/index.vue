@@ -4,7 +4,7 @@
 --> 
 <template>
   <div>
-    常用于父子、子孙组件之间通信。
+    <rl-text>常用于父子、子孙组件之间通信。</rl-text>
     <sub-title>dom结构：</sub-title>
     <rl-img imgName="refs"></rl-img>
     <sub-title>打印this.$refs结果：</sub-title>
