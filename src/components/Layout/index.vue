@@ -47,6 +47,12 @@ export default {
     top: 0;
     left: 0;
     z-index: 99;
+    overflow: auto;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
+    }
   }
   .layout-right {
     flex: auto;

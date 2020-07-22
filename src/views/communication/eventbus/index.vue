@@ -4,9 +4,7 @@
 --> 
 <template>
   <div>
-    <rl-text>
-      <template v-slot:title>事件总线原理：</template>
-      采用<span class="rl-keyword">发布、订阅</span>模式，构造一个对象，实现发布和订阅方法，组件a调用订阅方法，监听事件，组件b调用发布方法，派发事件，当事件被派发时，所有订阅了该方法的组件都能收到通知，从而进行通信，常用于没有父子关系组件间的通信。
+    <rl-text v="采用发布、订阅模式，构造一个对象，实现发布和订阅方法；组件a调用订阅方法，监听事件，组件b调用发布方法，派发事件，当事件被派发时，所有订阅了该方法的组件都能收到通知，从而进行通信，常用于没有关系组件间的通信。">
     </rl-text>
     <sub-title>实现, main.js：</sub-title>
     <mk :content="main" />
@@ -41,7 +39,7 @@ Vue.prototype.$bus = new Vue()
 created() {
   // 订阅事件监听
   this.$bus.$on('hello', v => {
-    alert('接收到通知，值为：' + v)
+    alert('a组件接收到通知，值为：' + v)
   })
 }
 `
@@ -49,7 +47,7 @@ created() {
       bJs: this.genHtml(
         `
 <div>
-  <button @click='$bus.$emit('hello', '嘻嘻')'>用事件总线，派发事件</button>
+  <button @click='$bus.$emit('hello', '我是b组件，嘻嘻')'>用事件总线，派发事件</button>
 </div>
         `
       )
@@ -58,7 +56,7 @@ created() {
   created() {
     // 订阅事件监听
     this.$bus.$on('hello', v => {
-      alert('接收到通知，值为：' + v)
+      alert('a组件接收到通知，值为：' + v)
     })
   },
   beforeDestroy() {

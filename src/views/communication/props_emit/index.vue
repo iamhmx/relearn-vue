@@ -4,7 +4,7 @@
 --> 
 <template>
   <div>
-    <rl-text>常用于父子组件之间传值，不适合层级太深的父子组件通信。</rl-text>
+    <rl-text v='常用于父子组件之间传值，不适合层级太深的父子组件通信。'></rl-text>
     <sub-title>父组件：</sub-title>
     <mk :content="html" />
     <mk :content="js" />
@@ -33,7 +33,7 @@ export default {
 export default {
   methods: {
     handleEmit(val) {
-      alert('子组件通过$emit派发click事件，值为' + val)
+      alert('子组件通过$emit派发clickChild事件，值为' + val)
     }
   }
 }`),

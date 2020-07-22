@@ -4,7 +4,7 @@
 --> 
 <template>
   <div>
-    <rl-text>常用于父子组件之间通信，兄弟组件之间通信也可以通过共同的父组件进行搭桥通信。</rl-text>
+    <rl-text v="常用于父子组件之间通信，兄弟组件之间通信也可以通过共同的父组件进行搭桥通信。"></rl-text>
     <sub-title>层级关系：</sub-title>
     <rl-desc :des="desData"></rl-desc>
     <!-- 用标签包裹子组件，同样可以通过$children拿到实例 -->

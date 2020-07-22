@@ -4,40 +4,20 @@
 --> 
 <template>
   <div class="tree-container">
+    <rl-text v="实现效果（左侧菜单就是一个tree，只是多了些样式）："></rl-text>
+    <tree :data="treeData"></tree>
     <sub-title>组件设计：</sub-title>
     <rl-desc :des="desData"></rl-desc>
     <sub-title>数据格式：</sub-title>
-    <pre>
-      <code class="rl-js">
-        <span>treeData: [</span>
-        <span>  {</span>
-        <span>    title: '显示内容'</span>
-        <span>    children: [</span>
-        <span>      {</span>
-        <span>        title: '显示内容',</span>
-        <span>        children: []</span>
-        <span>      }</span>
-        <span>    ]</span>
-        <span>  }</span>
-        <span>]</span>
-      </code>
-    </pre>
+    <mk :content="dataStr"></mk>
     <sub-title>组件使用：</sub-title>
-    <pre>
-      <code class="rl-js">
-        <span class="rl-tag">{{tag3('tree')}} </span>:data="<span class="rl-string">treeData</span>"<span class="rl-tag">>{{tag2('tree')}}</span>
-      </code>
-    </pre>
+    <mk :content="usage"></mk>
     <sub-title>tree组件实现，tree.vue：</sub-title>
-    <rl-img imgName="tree" />
-    <sub-title>tree-node组件实现，tree-node.vue，template：</sub-title>
-    <rl-img imgName="tree-node-template" />
-    <sub-title>tree-node.vue，js：</sub-title>
-    <rl-img imgName="tree-node-js" />
-    <div style="padding: 20px 20px 100px 20px;">
-      <sub-title>实现效果（左侧菜单就是一个tree，只是多了些样式）：</sub-title>
-      <tree :data="treeData"></tree>
-    </div>
+    <mk :content="treeHtml"></mk>
+    <mk :content="treeJs"></mk>
+    <sub-title>tree-node组件实现，tree-node.vue：</sub-title>
+    <mk :content="nodeHtml"></mk>
+    <mk :content="nodeJs"></mk>
   </div>
 </template>
 
@@ -93,7 +73,103 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      dataStr: this.genJs(`
+treeData: [
+  {
+    title: '显示内容'
+    children: [
+      {
+        title: '显示内容',
+        children: []
+      }
+    ]
+  }
+]
+      `),
+      usage: this.genHtml(`<tree :data="treeData"></tree>`),
+      treeHtml: this.genHtml(`
+<template>
+  <div class="tree">
+    <!-- 遍历显示一级节点 -->
+    <tree-node v-for="item in data"
+               :key="item.title"
+               :model="item"></tree-node>
+  </div>
+</template>
+      `),
+      treeJs: this.genJs(`
+import node from './tree-node'
+export default {
+  components: {
+    'tree-node': node
+  },
+  props: {
+    // 数据
+    data: {
+      type: Array,
+      required: true
+    }
+  }
+}
+      `),
+      nodeHtml: this.genHtml(`
+<template>
+  <div class="tree-node-container">
+    <!-- 展示当前节点信息 -->
+    <div @click="toggle"
+         :style="{paddingLeft: (level - 1) * 15 + 'px'}">
+      <label>{{model.title}}</label>
+      <span v-if="isFolder"
+            style="margin-left: 20px;">{{open ? '-' : '+'}}</span>
+    </div>
+    <!-- 如果有孩子元素，遍历，递归显示，自己显示自己 -->
+    <div v-if="isFolder"
+         v-show="open">
+      <tree-node class="item"
+                 v-for="item in model.children"
+                 :model="item"
+                 :key="item.title"
+                 :level="level + 1"></tree-node>
+    </div>
+  </div>
+</template>
+      `),
+      nodeJs: this.genJs(`
+export default {
+  // name必须设置
+  name: 'TreeNode',
+  props: {
+    // 当前节点数据
+    model: Object,
+    // 当前节点层级，用于缩进样式控制
+    level: {
+      type: Number,
+      default: 1
+    }
+  },
+  data() {
+    return {
+      // 如果是父级节点，控制是否展开
+      open: false
+    }
+  },
+  computed: {
+    // 父级节点判断标识，有children，且children长度大于0
+    isFolder() {
+      return this.model.children && this.model.children.length
+    }
+  },
+  methods: {
+    // 展开、收起方法
+    toggle() {
+      if (this.isFolder) {
+        this.open = !this.open
+      }
+    }
+  }
+}
+      `)
     }
   }
 }

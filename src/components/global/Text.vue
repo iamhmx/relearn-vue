@@ -4,24 +4,30 @@
 --> 
 <template>
   <div class="text-container">
-    <div>
-      <slot name="title"></slot>
-    </div>
-    <div>
-      <slot></slot>
-    </div>
+    <mk :content="text"></mk>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'rl-text'
+  name: 'rl-text',
+  props: {
+    v: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    text() {
+      return '#### ' + this.v
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .text-container {
-  line-height: 30px;
+  // line-height: 30px;
   margin-bottom: 10px;
 }
 </style>
