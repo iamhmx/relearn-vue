@@ -11,13 +11,17 @@ import code from "@/mixins/code";
 import "@/components/global";
 // 导入svg
 import "@/icons";
-import Bus from "@/views/communication/eventbus/bus"
+// import Bus from "@/views/communication/eventbus/bus"
 
+import MarkdownItVueLight from 'markdown-it-vue/dist/markdown-it-vue-light.umd.min.js'
+import 'markdown-it-vue/dist/markdown-it-vue-light.css'
+
+Vue.component('mk', MarkdownItVueLight)
 Vue.use(plugins)
 Vue.mixin(code)
 
 Vue.config.productionTip = false
-Vue.prototype.$bus = new Bus() // new Vue()
+Vue.prototype.$bus = new Vue()
 
 new Vue({
   router,

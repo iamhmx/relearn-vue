@@ -15,18 +15,10 @@
       </child>
     </div>
     <p>子组件可以通过<strong>$parent</strong>访问父组件实例，从而可以访问父组件的属性，调用父组件方法。</p>
-    <pre>
-      <code class="rl-js">
-        <span class="rl-keyword">this</span>.$children[0].$parent === <span class="rl-keyword">this</span>
-      </code>
-    </pre>
+    <mk :content="js1"></mk>
     <p>子组件可以通过<strong>$root</strong>访问祖先组件实例</p>
-    <pre>
-      <code class="rl-js">
-        <span class="rl-keyword">this</span>.$children[0].$root === <span class="rl-keyword">this</span><span>.$root</span>
-      </code>
-    </pre>
-    <point class="tips">$children是一个存放子组件的数组，但不保证子组件顺序</point>
+    <mk :content="js2"></mk>
+    <point v="$children是一个存放子组件的数组，但不保证子组件顺序"></point>
   </div>
 </template>
 
@@ -55,7 +47,9 @@ export default {
           title: '孙子组件：child2',
           content: ''
         }
-      ]
+      ],
+      js1: this.genJs(`this.$children[0].$parent === this`),
+      js2: this.genJs(`this.$children[0].$root === this.$root`)
     }
   },
   mounted() {

@@ -18,6 +18,5 @@ export default {
 <style lang="scss" scoped>
 .sub-title-container {
   padding: 10px 0;
-  font-size: 12px;
 }
 </style>

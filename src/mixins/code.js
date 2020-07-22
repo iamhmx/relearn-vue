@@ -20,5 +20,20 @@ export default {
         tag3(name) {
             return `<${name}`
         },
+        genCode(t, v) {
+            return '```' + t + '\n' +
+                v +
+                '\n```'
+        },
+        genJs(v) {
+            return '```js\n' +
+                v +
+                '\n```'
+        },
+        genHtml(v) {
+            return '```html\n' +
+                v +
+                '\n```'
+        }
     },
 }

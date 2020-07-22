@@ -8,7 +8,7 @@
     <div class="github"
          @click="openGithub">
       <svg-icon icon="github"></svg-icon>
-      Fork me on Github
+      Star
     </div>
   </div>
 </template>
@@ -34,9 +34,10 @@ export default {
     font-weight: bolder;
   }
   .github {
+    padding: 0 5px;
     cursor: pointer;
-    font-weight: bolder;
-    font-style: italic;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
   }
 }
 </style>

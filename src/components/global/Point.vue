@@ -5,14 +5,32 @@
 --> 
 <template>
   <div class="rl-point">
-    <span>Tips：</span>
-    <slot></slot>
+    <mk :content="tips"></mk>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'point'
+  name: 'point',
+  props: {
+    v: {
+      type: String,
+      required: true
+    },
+    t: {
+      type: String,
+      default: 'info'
+    }
+  },
+  computed: {
+    tips() {
+      return `
+::: ${this.t}
+${this.v}
+:::
+      `
+    }
+  }
 }
 </script>
 

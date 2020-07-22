@@ -13,6 +13,7 @@
       </div>
       <div class="layout-content">
         <router-view></router-view>
+        <!-- <div class="put-on-file">渝ICP备19009669号-2</div> -->
       </div>
     </div>
   </div>
@@ -63,6 +64,11 @@ export default {
       text-align: left;
       height: auto;
       font-size: 14px;
+      .put-on-file {
+        width: 100%;
+        text-align: center;
+        color: lightgrey;
+      }
     }
   }
 }

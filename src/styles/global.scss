@@ -71,3 +71,20 @@ pre {
     font-size: 14px;
     padding: 20px 0;
 }
+
+.markdown-body {
+    margin-bottom: 20px !important;
+
+    pre {
+        background: #f8f8f8 !important;
+        padding: 30px !important;
+    }
+
+    code {
+        font-family: monospace !important;
+    }
+
+    .markdown-it-vue-alert-icon {
+        top: 10px;
+    }
+}

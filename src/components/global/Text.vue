@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .text-container {
-  line-height: 28px;
+  line-height: 30px;
+  margin-bottom: 10px;
 }
 </style>

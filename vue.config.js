@@ -28,13 +28,13 @@ module.exports = {
         // 设置别名
         config.resolve.alias.set('@', resolve('src'))
         // 配置svg-loader
-        config.module.rules.delete("svg"); // 删除默认配置中处理svg,
+        // config.module.rules.delete("svg"); // 删除默认配置中处理svg,
+        config.module.rule('svg')
+            .exclude.add(resolve('src/icons'))
         config.module
             .rule('svg-sprite-loader')
             .test(/\.svg$/)
-            .include
-            .add(resolve('src/icons/svg')) //处理svg目录
-            .end()
+            .include.add(resolve('src/icons/svg')).end() //处理svg目录
             .use('svg-sprite-loader')
             .loader('svg-sprite-loader')
             .options({
