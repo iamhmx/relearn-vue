@@ -7,7 +7,6 @@
     <!-- 自定义组件实现v-model：接收一个value，emit一个input事件 -->
     <input class="input"
            :value="value"
-           :type="type"
            v-bind="$attrs"
            @input="onInput">
   </div>
@@ -19,11 +18,7 @@ export default {
   inheritAttrs: false,
   mixins: [emitter],
   props: {
-    type: {
-      type: String,
-      default: 'text'
-    },
-    value: String
+    value: String,
   },
   methods: {
     onInput(e) {
@@ -34,8 +29,8 @@ export default {
       // this.$parent.$emit('validate')
       // 使用mixins混入的dispatch方法，向上找到form-item
       this.dispatch('form-item', 'validate')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -15,6 +15,15 @@ const component = {
     children: [
         {
 
+            path: '/component/v-model',
+            name: 'v-model',
+            component: () => import('../views/component/v-model'),
+            meta: {
+                title: '自定义组件的v-model'
+            }
+        },
+        {
+
             path: '/component/form',
             name: 'form',
             component: () => import('../views/component/form'),

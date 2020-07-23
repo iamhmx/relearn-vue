@@ -8,13 +8,11 @@
     <sub-title>父组件：</sub-title>
     <mk :content="html"></mk>
     <mk :content="content" />
-    <sub-title>子组件template：</sub-title>
+    <sub-title>子组件：</sub-title>
     <mk :content="childHtml" />
-    <sub-title>子组件script：</sub-title>
     <mk :content="childJs" />
-    <sub-title>孙子组件template：</sub-title>
+    <sub-title>孙子组件：</sub-title>
     <mk :content="grandsonHtml" />
-    <sub-title>孙子组件script：</sub-title>
     <mk :content="grandsonJs" />
     <p>改变父组件的count，观察子组件中注入数据的变化：<button @click="parentCount++">count + 1</button></p>
     <child></child>
@@ -30,14 +28,12 @@ import grandson from './grandson'
 export default {
   components: {
     child,
-    grandson
+    grandson,
   },
   data() {
     return {
       parentCount: 0,
-      html: this.genHtml(
-        `<p><button @click="parentCount++">count + 1</button></p>`
-      ),
+      html: this.genHtml(`<button @click="parentCount++">count + 1</button>`),
       content: this.genJs(`
 export default {
   data() {
@@ -89,7 +85,7 @@ export default {
   // 注入数据，使用数组的形式
   inject: ['count', 'parent']
 }
-      `)
+      `),
     }
   },
   provide() {
@@ -97,9 +93,9 @@ export default {
       // provide父组件的属性parentCount
       count: this.parentCount,
       // provide父组件自身实例
-      parent: this
+      parent: this,
     }
-  }
+  },
 }
 </script>
 
