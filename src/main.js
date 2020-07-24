@@ -13,10 +13,10 @@ import "@/components/global";
 import "@/icons";
 // import Bus from "@/views/communication/eventbus/bus"
 
-import MarkdownItVueLight from 'markdown-it-vue/dist/markdown-it-vue-light.umd.min.js'
-import 'markdown-it-vue/dist/markdown-it-vue-light.css'
+import MarkdownItVue from 'markdown-it-vue'
+import 'markdown-it-vue/dist/markdown-it-vue.css'
 
-Vue.component('mk', MarkdownItVueLight)
+Vue.component('mk', MarkdownItVue)
 Vue.use(plugins)
 Vue.mixin(code)
 

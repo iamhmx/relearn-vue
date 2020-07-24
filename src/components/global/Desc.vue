@@ -21,8 +21,8 @@ export default {
   props: {
     des: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     genStyle(index) {
@@ -34,7 +34,7 @@ export default {
         right: 30 * index + 'px',
         bottom: 10 * index + 'px',
         borderRadius: '4px',
-        backgroundColor: index < 4 ? colors[index] : this.randomColor()
+        backgroundColor: index < 4 ? colors[index] : this.randomColor(),
       }
     },
     randomColor() {
@@ -47,14 +47,14 @@ export default {
         Math.random() * 256 +
         ')'
       )
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .rl-desc-container {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   padding: 10px;
   text-align: left;
   font-size: 12px;

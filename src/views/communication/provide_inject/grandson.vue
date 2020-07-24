@@ -4,6 +4,7 @@
 --> 
 <template>
   <div>
+    <!-- 当父组件的count改变是，这里并不会改变 -->
     <p>孙子组件，显示注入的count：{{count}}</p>
     <p class="reactive">孙子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
   </div>
@@ -15,12 +16,12 @@ export default {
   // 注入数据，可以直接使用数组的形式，inject: ['count', 'parent']
   inject: {
     count: {
-      from: 'count'
+      from: 'count',
     },
     parent: {
-      from: 'parent'
-    }
-  }
+      from: 'parent',
+    },
+  },
 }
 </script>
 

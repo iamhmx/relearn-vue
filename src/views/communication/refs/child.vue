@@ -3,23 +3,23 @@
  * @Date: 2020-07-07 09:41:31
 --> 
 <template>
-  <div>
+  <p>
     子组件的count：{{count}}
-  </div>
+  </p>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      count: 0
+      count: 0,
     }
   },
   methods: {
     add() {
       this.count++
-    }
-  }
+    },
+  },
 }
 </script>
 

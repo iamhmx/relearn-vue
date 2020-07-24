@@ -5,17 +5,20 @@
 <template>
   <div class="tree-container">
     <rl-text v="实现效果（左侧菜单就是一个tree，只是多了些样式）："></rl-text>
-    <tree :data="treeData"></tree>
-    <sub-title>组件设计：</sub-title>
-    <rl-desc :des="desData"></rl-desc>
-    <sub-title>数据格式：</sub-title>
-    <mk :content="dataStr"></mk>
-    <sub-title>组件使用：</sub-title>
+    <div class="rl-show-area"
+         style="margin-bottom:20px;">
+      <tree :data="treeData"></tree>
+    </div>
+    <rl-text v="组件使用："></rl-text>
     <mk :content="usage"></mk>
-    <sub-title>tree组件实现，tree.vue：</sub-title>
+    <rl-text v="数据格式："></rl-text>
+    <mk :content="dataStr"></mk>
+    <rl-text v="组件设计："></rl-text>
+    <rl-desc :des="desData"></rl-desc>
+    <rl-text v="tree组件实现，tree.vue："></rl-text>
     <mk :content="treeHtml"></mk>
     <mk :content="treeJs"></mk>
-    <sub-title>tree-node组件实现，tree-node.vue：</sub-title>
+    <rl-text v="tree-node组件实现，tree-node.vue："></rl-text>
     <mk :content="nodeHtml"></mk>
     <mk :content="nodeJs"></mk>
   </div>
@@ -25,20 +28,20 @@
 import tree from './tree'
 export default {
   components: {
-    tree
+    tree,
   },
   data() {
     return {
       desData: [
         {
           title: 'tree组件：',
-          content: '管理tree数据data，遍历data，显示一级节点'
+          content: '管理tree数据data，遍历data，显示一级节点',
         },
         {
           title: 'tree-node组件：',
           content:
-            '显示子节点，如果该子节点也有children，递归展示其所有子节点，直到所有节点都是叶子节点（即：没有children或children为空）'
-        }
+            '显示子节点，如果该子节点也有children，递归展示其所有子节点，直到所有节点都是叶子节点（即：没有children或children为空）',
+        },
       ],
       treeData: [
         {
@@ -48,31 +51,31 @@ export default {
               title: '我是二级节点aa',
               children: [
                 {
-                  title: '我是三级节点aaa'
-                }
-              ]
+                  title: '我是三级节点aaa',
+                },
+              ],
             },
             {
-              title: '我是二级节点ab'
-            }
-          ]
+              title: '我是二级节点ab',
+            },
+          ],
         },
         {
           title: '我是一级节点b',
           children: [
             {
-              title: '我是二级节点ba'
+              title: '我是二级节点ba',
             },
             {
               title: '我是二级节点bb',
               children: [
                 {
-                  title: '我是三级节点bbb'
-                }
-              ]
-            }
-          ]
-        }
+                  title: '我是三级节点bbb',
+                },
+              ],
+            },
+          ],
+        },
       ],
       dataStr: this.genJs(`
 treeData: [
@@ -169,9 +172,9 @@ export default {
     }
   }
 }
-      `)
+      `),
     }
-  }
+  },
 }
 </script>
 

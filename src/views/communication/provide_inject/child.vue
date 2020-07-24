@@ -4,6 +4,7 @@
 --> 
 <template>
   <div>
+    <!-- 当父组件的count改变是，这里并不会改变 -->
     <p>孩子组件，显示注入的count：{{childCount}}</p>
     <p class="reactive">孩子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
   </div>
@@ -18,12 +19,12 @@ export default {
     // 取别名、设置默认值
     childCount: {
       from: 'count',
-      default: 0
+      default: 0,
     },
     parent: {
-      from: 'parent'
-    }
-  }
+      from: 'parent',
+    },
+  },
 }
 </script>
 

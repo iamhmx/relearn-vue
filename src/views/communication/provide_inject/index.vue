@@ -14,9 +14,11 @@
     <sub-title>孙子组件：</sub-title>
     <mk :content="grandsonHtml" />
     <mk :content="grandsonJs" />
-    <p>改变父组件的count，观察子组件中注入数据的变化：<button @click="parentCount++">count + 1</button></p>
-    <child></child>
-    <grandson></grandson>
+    <div class="rl-show-area">
+      <p>改变父组件的count，观察子组件中注入数据的变化：<button @click="parentCount++">count + 1</button></p>
+      <child></child>
+      <grandson></grandson>
+    </div>
     <point v='provide 和 inject 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的 property 还是可响应的。绿色部分的值就是通过注入父组件获取的，这就是可响应的。'></point>
   </div>
 </template>
@@ -53,6 +55,7 @@ export default {
       childHtml: this.genHtml(`
 <template>
   <div>
+    <!-- 当父组件的count改变是，这里并不会改变 -->
     <p>孩子组件，显示注入的count：{{childCount}}</p>
     <p class="reactive">孩子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
   </div>
@@ -75,6 +78,7 @@ export default {
       grandsonHtml: this.genHtml(`
 <template>
   <div>
+    <!-- 当父组件的count改变是，这里并不会改变 -->
     <p>孙子组件，显示注入的count：{{count}}</p>
     <p class="reactive">孙子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
   </div>
