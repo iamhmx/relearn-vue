@@ -12,11 +12,8 @@ import "@/components/global";
 // 导入svg
 import "@/icons";
 // import Bus from "@/views/communication/eventbus/bus"
+import 'highlight.js/styles/atom-one-light.css'
 
-import MarkdownItVue from 'markdown-it-vue'
-import 'markdown-it-vue/dist/markdown-it-vue.css'
-
-Vue.component('mk', MarkdownItVue)
 Vue.use(plugins)
 Vue.mixin(code)
 

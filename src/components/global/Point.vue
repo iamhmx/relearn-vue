@@ -5,34 +5,31 @@
 --> 
 <template>
   <div class="rl-point">
-    <mk :content="tips"></mk>
+    <svg-icon class="icon"
+              icon="info"></svg-icon>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
   name: 'point',
-  props: {
-    v: {
-      type: String,
-      required: true
-    },
-    t: {
-      type: String,
-      default: 'info'
-    }
-  },
-  computed: {
-    tips() {
-      return `
-::: ${this.t}
-${this.v}
-:::
-      `
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
+.rl-point {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #e6f7ff;
+  display: flex;
+  flex-direction: row;
+  .icon {
+    min-width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    margin-top: 2px;
+  }
+}
 </style>

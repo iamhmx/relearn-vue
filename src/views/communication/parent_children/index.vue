@@ -14,19 +14,18 @@
         <child name='child2'></child>
       </child>
     </div>
-    <p>子组件可以通过<strong>$parent</strong>访问父组件实例，从而可以访问父组件的属性，调用父组件方法。</p>
-    <mk :content="js1"></mk>
-    <p>子组件可以通过<strong>$root</strong>访问祖先组件实例</p>
-    <mk :content="js2"></mk>
-    <point v="$children是一个存放子组件的数组，但不保证子组件顺序"></point>
+    <md></md>
+    <point>$children是一个存放子组件的数组，但不保证子组件顺序</point>
   </div>
 </template>
 
 <script>
 import child from './child'
+import md from './index.md'
 export default {
   components: {
-    child
+    child,
+    md,
   },
   data() {
     return {
@@ -36,26 +35,20 @@ export default {
         {
           title: '父组件：parent',
           content:
-            '可以通过this.$children访问子组件实例，this.$children可以拿到child1，但拿不到child2'
+            '可以通过this.$children访问子组件实例，this.$children可以拿到child1，但拿不到child2',
         },
         {
           title: '孩子组件：child1',
           content:
-            '可以通过this.$children访问他的子组件实例child2，this.$parent可以访问父组件parent'
+            '可以通过this.$children访问他的子组件实例child2，this.$parent可以访问父组件parent',
         },
         {
           title: '孙子组件：child2',
-          content: ''
-        }
+          content: '',
+        },
       ],
-      js1: this.genJs(`this.$children[0].$parent === this`),
-      js2: this.genJs(`this.$children[0].$root === this.$root`)
     }
   },
-  mounted() {
-    console.log('孩子组件：', this.$children)
-    console.log('孙子组件：', this.$children[0].$children)
-  }
 }
 </script>
 
