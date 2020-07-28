@@ -1,11 +1,13 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-22 13:51:29
---> 
+-->
 <template>
   <div>
     <p>
-      <button @click="$bus.$emit('hello', '我是b组件，嘻嘻')">用事件总线，派发事件</button>
+      <button @click="$bus.$emit('hello', '我是b组件，嘻嘻')">
+        用事件总线，派发事件
+      </button>
     </p>
   </div>
 </template>
@@ -14,5 +16,4 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

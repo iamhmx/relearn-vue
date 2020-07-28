@@ -15,11 +15,11 @@
 import tree from './sider-bar-tree'
 export default {
   components: {
-    tree
+    tree,
   },
   data() {
     return {
-      data: ''
+      data: '',
     }
   },
   created() {
@@ -31,18 +31,18 @@ export default {
   methods: {
     handleRoutes(routes) {
       return routes
-        .filter(r => {
+        .filter((r) => {
           return r.path && r.path.length > 1
         })
-        .map(r => {
+        .map((r) => {
           if (r.children && r.children.length > 0) {
             this.handleRoutes(r.children)
           }
           r.title = r.meta.title
           return r
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

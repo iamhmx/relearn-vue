@@ -15,14 +15,14 @@ export default {
   props: {
     icon: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     iconName() {
       return `#icon-${this.icon}`
-    }
-  }
+    },
+  },
 }
 </script>
 

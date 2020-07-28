@@ -1,12 +1,12 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-23 10:41:25
---> 
+-->
 <template>
   <div>
     <input type="text"
            :value="value"
-           @input="valueInput">
+           @input="valueInput" />
   </div>
 </template>
 
@@ -28,5 +28,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

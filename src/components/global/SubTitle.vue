@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'sub-title'
+  name: 'sub-title',
 }
 </script>
 

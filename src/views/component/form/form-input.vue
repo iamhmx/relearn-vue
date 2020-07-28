@@ -1,14 +1,14 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 15:46:10
---> 
+-->
 <template>
   <div class="form-input-container">
     <!-- 自定义组件实现v-model：接收一个value，emit一个input事件 -->
     <input class="input"
            :value="value"
            v-bind="$attrs"
-           @input="onInput">
+           @input="onInput" />
   </div>
 </template>
 

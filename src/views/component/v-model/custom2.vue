@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-23 10:49:26
---> 
+-->
 <template>
   <div>
     苹果
@@ -30,5 +30,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -2,15 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 // 插件
-import plugins from "./utils/create";
+import plugins from './utils/noticePlugin'
 // 全局样式
-import "@/styles/global.scss";
+import '@/styles/global.scss'
 // 混入代码显示相关内容
-import code from "@/mixins/code";
+import code from '@/mixins/code'
 // 全局组件
-import "@/components/global";
+import '@/components/global'
 // 导入svg
-import "@/icons";
+import '@/icons'
 // import Bus from "@/views/communication/eventbus/bus"
 import 'highlight.js/styles/atom-one-light.css'
 

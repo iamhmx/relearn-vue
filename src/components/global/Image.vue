@@ -24,18 +24,18 @@ export default {
   props: {
     imgName: {
       type: String,
-      required: true
+      required: true,
     },
     format: {
       type: String,
-      default: '.png'
-    }
+      default: '.png',
+    },
   },
   data() {
     return {
       showBig: false,
       bigImgStyle: '',
-      src: require(`@/assets/${this.imgName}${this.format}`)
+      src: require(`@/assets/${this.imgName}${this.format}`),
     }
   },
   mounted() {
@@ -52,15 +52,15 @@ export default {
         width: '700px',
         marginLeft: left + 'px',
         marginTop: top < 0 ? 0 : top + 'px',
-        cursor: 'pointer'
+        cursor: 'pointer',
       }
     }
   },
   methods: {
     clickImg() {
       this.showBig = !this.showBig
-    }
-  }
+    },
+  },
 }
 </script>
 

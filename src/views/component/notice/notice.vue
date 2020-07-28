@@ -1,13 +1,13 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-08 16:39:11
---> 
+-->
 <template>
   <transition name="fade">
     <div v-if="isShow"
          class="notice-container">
       <div class="notice-content"
-           :style="sty">{{title}}：{{content}}</div>
+           :style="sty">{{ title }}：{{ content }}</div>
     </div>
   </transition>
 </template>
@@ -15,27 +15,32 @@
 <script>
 export default {
   props: {
+    // 标题
     title: {
       type: String,
-      default: '提示'
+      default: '提示',
     },
+    // 内容
     content: {
-      type: String
+      type: String,
     },
+    // 显示时间
     duration: {
       type: Number,
-      default: 2000
+      default: 2000,
     },
+    // 类型
     type: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
-      isShow: false
+      isShow: false,
     }
   },
   computed: {
+    // 根据type，设置不同的颜色
     sty() {
       let bgColor = '#e9e9eb'
       let color = '#909399'
@@ -48,19 +53,21 @@ export default {
       }
       return {
         backgroundColor: bgColor,
-        color
+        color,
       }
-    }
+    },
   },
   methods: {
+    // 显示消息
     show() {
       this.isShow = true
       setTimeout(() => {
+        // 消息消失、移除组件
         this.isShow = false
         this.remove()
       }, this.duration)
-    }
-  }
+    },
+  },
 }
 </script>
 

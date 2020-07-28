@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 09:40:16
---> 
+-->
 <template>
   <div>
     <md></md>
@@ -27,5 +27,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

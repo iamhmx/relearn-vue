@@ -1,12 +1,14 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 11:38:26
---> 
+-->
 <template>
   <div>
     <!-- 当父组件的count改变是，这里并不会改变 -->
-    <p>孩子组件，显示注入的count：{{childCount}}</p>
-    <p class="reactive">孩子组件，通过注入的父组件实例获取值：{{parent.parentCount}}</p>
+    <p>孩子组件，显示注入的count：{{ childCount }}</p>
+    <p class="reactive">
+      孩子组件，通过注入的父组件实例获取值：{{ parent.parentCount }}
+    </p>
   </div>
 </template>
 

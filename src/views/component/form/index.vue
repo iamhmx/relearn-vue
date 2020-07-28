@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 15:45:38
---> 
+-->
 <template>
   <div>
     <div class="form-container">
@@ -36,7 +36,6 @@
       <im2></im2>
     </div>
   </div>
-
 </template>
 
 <script>

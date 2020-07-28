@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import communicationRoutes from "./communication";
-import componentRoutes from "./component";
-import bucketRoutes from "./bucket";
+import communicationRoutes from './communication'
+import componentRoutes from './component'
+import bucketRoutes from './bucket'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    redirect: '/communication',
+    redirect: '/communication'
   },
   communicationRoutes,
   componentRoutes,

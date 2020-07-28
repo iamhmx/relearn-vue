@@ -1,18 +1,18 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-23 10:37:10
---> 
+-->
 <template>
   <div>
     <md1></md1>
     <div class="rl-show-area">
       <custom1 v-model="a"></custom1>
-      a的值：{{a}}
+      a的值：{{ a }}
     </div>
     <md2></md2>
     <div class="rl-show-area">
       <custom2 v-model="b"></custom2>
-      b的值：{{b}}
+      b的值：{{ b }}
     </div>
   </div>
 </template>
@@ -38,5 +38,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

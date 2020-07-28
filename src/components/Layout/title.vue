@@ -18,8 +18,8 @@ export default {
   methods: {
     openGithub() {
       window.open('https://github.com/iamhmx/relearn-vue', '_blank')
-    }
-  }
+    },
+  },
 }
 </script>
 

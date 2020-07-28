@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 10:10:06
---> 
+-->
 <template>
   <div>
     <slot></slot>
@@ -14,11 +14,10 @@ export default {
   props: {
     name: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

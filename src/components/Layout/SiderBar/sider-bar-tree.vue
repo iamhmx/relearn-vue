@@ -14,14 +14,14 @@
 import node from './sider-bar-item'
 export default {
   components: {
-    'tree-node': node
+    'tree-node': node,
   },
   props: {
     data: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 

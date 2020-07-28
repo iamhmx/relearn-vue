@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 15:45:56
---> 
+-->
 <template>
   <div>
     <slot></slot>
@@ -14,44 +14,43 @@ export default {
   props: {
     model: {
       type: Object,
-      required: true
+      required: true,
     },
     rules: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     labelWidth: String,
     labelPosition: {
       type: String,
       default: 'left',
-      validator: val => {
+      validator: (val) => {
         return ['left', 'center', 'right'].includes(val)
-      }
-    }
+      },
+    },
   },
   provide() {
     return {
-      form: this
+      form: this,
     }
   },
   created() {
     this.fields = []
-    this.$on('add-item', item => {
+    this.$on('add-item', (item) => {
       this.fields.push(item)
     })
   },
   methods: {
     validate(cb) {
       let tasks = this.fields
-        .filter(field => field.prop)
-        .map(item => item.validate())
+        .filter((field) => field.prop)
+        .map((item) => item.validate())
       Promise.all(tasks)
         .then(() => cb(true))
         .catch(() => cb(false))
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

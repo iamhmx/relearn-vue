@@ -1,12 +1,17 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 10:45:28
---> 
+-->
 <template>
   <div>
     <md></md>
     <div class="rl-show-area">
-      <p>在父组件中，通过this.$refs.child获取子组件实例，调用子组件add方法：<button @click="$refs.child.add()">this.$refs.child.add()</button></p>
+      <p>
+        <span>在父组件中，通过this.$refs.child获取子组件实例，调用子组件add方法：</span>
+        <button @click="$refs.child.add()">
+          this.$refs.child.add()
+        </button>
+      </p>
       <!-- 子组件 -->
       <child ref="child"></child>
     </div>
@@ -25,5 +30,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

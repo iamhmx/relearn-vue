@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 09:41:31
---> 
+-->
 <template>
   <div>
     <button @click="clickHandle">Try it</button>
@@ -13,16 +13,15 @@ export default {
   props: {
     name: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   methods: {
     clickHandle() {
       this.$emit('clickChild', `hello ${this.name}`)
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

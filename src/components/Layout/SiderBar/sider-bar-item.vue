@@ -39,13 +39,13 @@ export default {
     model: Object,
     level: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
   data() {
     return {
       open: false,
-      active: false
+      active: false,
     }
   },
   watch: {
@@ -54,7 +54,7 @@ export default {
       handler() {
         if (
           this.$route.matched
-            .map(item => item['path'])
+            .map((item) => item['path'])
             .includes(this.model.path)
         ) {
           this.active = true
@@ -63,8 +63,8 @@ export default {
         } else {
           this.active = false
         }
-      }
-    }
+      },
+    },
   },
   computed: {
     isFolder() {
@@ -81,7 +81,7 @@ export default {
     },
     href() {
       return this.isFolder ? 'javascript:void(0)' : this.model.path
-    }
+    },
   },
   methods: {
     toggle() {
@@ -93,8 +93,8 @@ export default {
       if (!this.isFolder) {
         this.$router.push(this.model.path)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

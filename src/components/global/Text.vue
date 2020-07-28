@@ -14,14 +14,14 @@ export default {
   props: {
     v: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     text() {
       return '#### ' + this.v
-    }
-  }
+    },
+  },
 }
 </script>
 

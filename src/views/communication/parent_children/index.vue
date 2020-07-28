@@ -1,7 +1,7 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 10:10:01
---> 
+-->
 <template>
   <div>
     <rl-text v="常用于父子组件之间通信，兄弟组件之间通信也可以通过共同的父组件进行搭桥通信。"></rl-text>
@@ -9,9 +9,9 @@
     <rl-desc :des="desData"></rl-desc>
     <!-- 用标签包裹子组件，同样可以通过$children拿到实例 -->
     <div>
-      <child name='child1'>
+      <child name="child1">
         <!-- 子组件包裹子组件，里面的子组件就不是当前组件的孩子了，是孙子了 -->
-        <child name='child2'></child>
+        <child name="child2"></child>
       </child>
     </div>
     <md></md>
@@ -52,5 +52,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -1,16 +1,18 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-07 15:46:03
---> 
+-->
 <template>
   <div class="form-item-container">
     <div class="form-item-content">
-      <label :style="labelStyle">{{label}}</label>
+      <label :style="labelStyle">{{ label }}</label>
       <slot></slot>
     </div>
     <span class="form-item-error"
           :style="errorStyle"
-          v-show="error">{{error}}</span>
+          v-show="error">{{
+      error
+    }}</span>
   </div>
 </template>
 
@@ -23,17 +25,17 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     prop: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   inject: ['form'],
   data() {
     return {
-      error: ''
+      error: '',
     }
   },
   computed: {
@@ -41,7 +43,7 @@ export default {
       return {
         fontSize: '14px',
         width: this.form.labelWidth,
-        textAlign: this.form.labelPosition
+        textAlign: this.form.labelPosition,
       }
     },
     errorStyle() {
@@ -51,9 +53,9 @@ export default {
         left: this.form.labelWidth,
         top: '40px',
         height: '15px',
-        lineHeight: '15px'
+        lineHeight: '15px',
       }
-    }
+    },
   },
   mounted() {
     // 监听validate，做校验
@@ -75,7 +77,7 @@ export default {
       // 创建校验器
       const schema = new Schema(descriptor)
       // 返回Promise，没有触发catch就说明验证通过
-      return schema.validate({ [this.prop]: value }, errors => {
+      return schema.validate({ [this.prop]: value }, (errors) => {
         if (errors) {
           // 将错误信息显示
           this.error = errors[0].message
@@ -84,8 +86,8 @@ export default {
           this.error = ''
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,42 +1,54 @@
 <!--
  * @Author: mingxing.huang
  * @Date: 2020-07-08 21:56:35
---> 
+-->
 <template>
   <div>
-    <h2>实现消息提示插件notice</h2>
-    <button @click="clickNoticeDefault">默认提示</button>
-    <button @click="clickNoticeError">错误提示</button>
-    <button @click="clickNoticeSuccess">成功提示</button>
+    <usage></usage>
+    <div class="rl-show-area">
+      <button @click="clickNoticeDefault">默认提示</button>
+      <button @click="clickNoticeError"
+              style="margin: 0 20px;">
+        错误提示
+      </button>
+      <button @click="clickNoticeSuccess">成功提示</button>
+    </div>
+    <im1></im1>
+    <im2></im2>
   </div>
 </template>
 
 <script>
+import usage from './usage.md'
+import im1 from './im1.md'
+import im2 from './im2.md'
 export default {
+  components: {
+    usage,
+    im1,
+    im2,
+  },
   methods: {
     clickNoticeDefault() {
       this.$notice({
         title: '提示',
-        content: '默认提示'
+        content: '默认提示',
       })
     },
     clickNoticeSuccess() {
-      this.$notice({
+      this.$notice.success({
         title: '提示',
-        type: 'success',
-        content: '成功提示'
+        content: '成功提示',
       })
     },
     clickNoticeError() {
-      this.$notice({
+      this.$notice.error({
         title: '提示',
-        type: 'error',
-        content: '错误提示'
+        content: '错误提示',
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

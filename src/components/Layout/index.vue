@@ -25,8 +25,8 @@ import siderBar from './SiderBar'
 export default {
   components: {
     siderBar,
-    'layout-title': title
-  }
+    'layout-title': title,
+  },
 }
 </script>
 
