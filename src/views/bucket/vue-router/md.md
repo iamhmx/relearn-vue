@@ -5,7 +5,7 @@
 
 ### 工作流程图：
 
-[流程图](https://github.com/iamhmx/relearn-vue/tree/master/src/assets/vue-router.png)
+<img src="https://github.com/iamhmx/relearn-vue/blob/master/src/assets/vue-router.png?raw=true" style="width: 800px;">
 
 ### `vue-router` 使用方式：
 
