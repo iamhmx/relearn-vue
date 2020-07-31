@@ -4,12 +4,17 @@
 --> 
 <template>
   <div>
-    vue-router
+    <md></md>
   </div>
 </template>
 
 <script>
-export default {}
+import md from './md.md'
+export default {
+	components: {
+		md,
+	},
+}
 </script>
 
 <style lang="scss" scoped>
