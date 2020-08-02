@@ -23,59 +23,64 @@
 import title from './title'
 import siderBar from './SiderBar'
 export default {
-  components: {
-    siderBar,
-    'layout-title': title,
-  },
+	components: {
+		siderBar,
+		'layout-title': title,
+	},
+	watch: {
+		$route() {
+			window.scrollTo(0, 0)
+		},
+	},
 }
 </script>
 
 <style lang="scss" scoped>
 .layout-container {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  .layout-sider-bar {
-    width: 208px;
-    min-width: 208px;
-    max-width: 208px;
-    flex: 0 0 208px;
-    height: 100%;
-    background: #fff;
-    border-right: $border;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    overflow: auto;
-    scrollbar-width: none; /* firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    &::-webkit-scrollbar {
-      display: none; /* Chrome Safari */
-    }
-  }
-  .layout-right {
-    flex: auto;
-    margin-left: 208px;
-    position: relative;
-    .layout-title {
-      padding: 20px;
-      border-bottom: $border;
-    }
-    .layout-content {
-      padding: 20px;
-      margin: 0 auto;
-      width: 800px;
-      min-width: 800px;
-      text-align: left;
-      height: auto;
-      font-size: 14px;
-      .put-on-file {
-        width: 100%;
-        text-align: center;
-        color: lightgrey;
-      }
-    }
-  }
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	.layout-sider-bar {
+		width: 208px;
+		min-width: 208px;
+		max-width: 208px;
+		flex: 0 0 208px;
+		height: 100%;
+		background: #fff;
+		border-right: $border;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		overflow: auto;
+		scrollbar-width: none; /* firefox */
+		-ms-overflow-style: none; /* IE 10+ */
+		&::-webkit-scrollbar {
+			display: none; /* Chrome Safari */
+		}
+	}
+	.layout-right {
+		flex: auto;
+		margin-left: 208px;
+		position: relative;
+		.layout-title {
+			padding: 20px;
+			border-bottom: $border;
+		}
+		.layout-content {
+			padding: 20px;
+			margin: 0 auto;
+			width: 800px;
+			min-width: 800px;
+			text-align: left;
+			height: auto;
+			font-size: 14px;
+			.put-on-file {
+				width: 100%;
+				text-align: center;
+				color: lightgrey;
+			}
+		}
+	}
 }
 </style>

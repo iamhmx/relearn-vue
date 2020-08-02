@@ -4,30 +4,25 @@
 --> 
 <template>
   <div class="text-container">
-    <mk :content="text"></mk>
+    <h3>{{v}}</h3>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'rl-text',
-  props: {
-    v: {
-      type: String,
-      required: true,
-    },
-  },
-  computed: {
-    text() {
-      return '#### ' + this.v
-    },
-  },
+	name: 'rl-text',
+	props: {
+		v: {
+			type: String,
+			required: true,
+		},
+	},
 }
 </script>
 
 <style lang="scss" scoped>
 .text-container {
-  // line-height: 30px;
-  margin-bottom: 10px;
+	// line-height: 30px;
+	margin-bottom: 10px;
 }
 </style>
