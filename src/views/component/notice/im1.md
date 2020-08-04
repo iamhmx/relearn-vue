@@ -1,26 +1,4 @@
-### 实现帮助方法，创建组件实例，并追加到页面上：
-
-```js
-// src/util/noticePlugin.js
-function create(Component, props) {
-  // 传入组件配置项，调用extend，得到组件构造方法
-  const Ctor = Vue.extend(Component)
-  // 创建组件实例，propsData接收传入的props数据
-  const vm = new Ctor({ propsData: props })
-  // 挂载，得到真实dom
-  vm.$mount()
-  // 移除组件方法，先从body中删除，再销毁组件
-  vm.remove = () => {
-    document.body.removeChild(vm.$el)
-    vm.$destroy()
-  }
-  // 添加到body上
-  document.body.appendChild(vm.$el)
-  return vm
-}
-```
-
-### 实现 notice 组件：
+### 实现 `notice` 组件：
 
 ```html
 <template>
@@ -88,5 +66,27 @@ export default {
       }, this.duration)
     }
   }
+}
+```
+
+### 实现帮助方法，创建 `notice` 组件实例，并追加到页面上：
+
+```js
+// src/util/noticePlugin.js
+function create(Component, props) {
+  // 传入组件配置项，调用extend，得到组件构造方法
+  const Ctor = Vue.extend(Component)
+  // 创建组件实例，propsData接收传入的props数据
+  const vm = new Ctor({ propsData: props })
+  // 挂载，得到真实dom
+  vm.$mount()
+  // 移除组件方法，先从body中删除，再销毁组件
+  vm.remove = () => {
+    document.body.removeChild(vm.$el)
+    vm.$destroy()
+  }
+  // 添加到body上
+  document.body.appendChild(vm.$el)
+  return vm
 }
 ```
