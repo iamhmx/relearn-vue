@@ -11,8 +11,11 @@ import code from '@/mixins/code'
 import '@/components/global'
 // 导入svg
 import '@/icons'
+
 // import Bus from "@/views/communication/eventbus/bus"
 import 'highlight.js/styles/atom-one-light.css'
+
+import store from './store'
 
 Vue.use(plugins)
 Vue.mixin(code)
@@ -22,5 +25,6 @@ Vue.prototype.$bus = new Vue()
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
