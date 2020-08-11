@@ -158,18 +158,25 @@ const install = Vue => {
   })
 }
 
+// 导出对象Vuex，创建实例用Vuex.Store()，插件使用install
 export default { Store, install }
 ```
 
 ### `vuex` 中的 getters 如何实现？
 
+分析：
+
 - `getters` 就是 `vuex` 的计算属性
-- `state` 的响应式，利用了 `vue` 实例的 `data`，同样可以利用 `vue` 实例的 `computed` 来实现 `getters`
-- 使用方式：`this.$store.getters.doubleCount`，`getters` 对象的 `key` 是方法名，`value` 是方法执行的结果
+- 我们创建了一个`vue`实例 `_vm` 来对 `state` 做响应式，同样可以利用 `_vm` 的 `computed` 来实现 `getters`
+- 将 `getters` 的内容构造成一个 `computed`，传入 `_vm`
+
+思路：
+
+- `getters.doubleCount` --> `_vm['doubleCount']`
 
 ```js
 constructor(options) {
-  // 定义getters对象，就是this.$store.getters这个对象
+  // 定义getters对象，访问的this.$store.getters就是这个对象
   this.getters = {}
   const computed = {}
   // 遍历getters的key，key就是方法名
@@ -179,14 +186,14 @@ constructor(options) {
       // 该方法的结果，就是getter方法执行结果
       return options.getters[key](this.state)
     }
-    // 拦截属性访问，当访问this.$store.getters.doubleCount时，实际上是返回_vm计算属性的值
-    // 而计算属性的值，就是getter方法执行结果
+    // 拦截getters属性访问，当访问this.$store.getters.doubleCount时
+    // 实际上是返回_vm计算属性的值，而计算属性的值，就是getter方法执行结果
     Object.defineProperty(this.getters, key, {
       get: () => {
         return this._vm[key]
       },
       set: () => {
-        console.error(`请不要尝试给getters.${key}直接赋值`)
+        console.error(`🙅请不要尝试给getters.${key}直接赋值`)
       }
     })
   })

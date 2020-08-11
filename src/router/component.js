@@ -26,7 +26,7 @@ const component = {
       name: 'form',
       component: () => import('../views/component/form'),
       meta: {
-        title: '封装表单组件form'
+        title: '实现表单组件form'
       }
     },
     {
