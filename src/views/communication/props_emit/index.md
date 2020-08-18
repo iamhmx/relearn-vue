@@ -1,9 +1,12 @@
-### 常用于父子组件之间传值，不适合层级太深的父子组件通信
-父组件：  
+### 常用于父子组件之间传值，不适合深层级的父子组件通信
+
+父组件：
+
 ```html
 <!-- 父组件，给子组件child传入name属性，值为vue -->
 <child name="vue" @clickChild="handleEmit"></child>
 ```
+
 ```js
 export default {
   methods: {
@@ -13,11 +16,14 @@ export default {
   }
 }
 ```
-子组件：  
+
+子组件：
+
 ```html
 <!-- 子组件派发一个名为clickChild -->
 <button @click="clickHandle">Try it!</button>
 ```
+
 ```js
 export default {
   props: {

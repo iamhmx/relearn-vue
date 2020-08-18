@@ -1,7 +1,7 @@
 ### 先看两个问题：
 
 1. `router-link`、`router-view`是什么，有什么作用？
-2. url 变化时，是如何拿到对应的页面进行渲染的？
+2. url 变化时，页面是如何更新的？
 
 ### 工作流程图：
 
@@ -9,24 +9,18 @@
 
 ### `vue-router` 使用方式：
 
-- step1：引入 `vue` 和 `vue-router`
+- `router/index.js`
 
 ```js
-// 文件：src/router/index.js
+// step1：引入 `vue` 和 `vue-router`
 import Vue from 'vue'
 import VueRouter from './vue-router'
-```
 
-- step2：使用 VueRouter
-
-```js
+// step2：使用 VueRouter
 // 可知VueRouter是插件，会暴露install方法，供Vue调用
 Vue.use(VueRouter)
-```
 
-- step3：定义路由配置项
-
-```js
+// step3：定义路由配置项
 const routes = [
   {
     path: '/',
@@ -39,34 +33,27 @@ const routes = [
     component: About
   }
 ]
-```
 
-- step4：创建 `router` 对象并导出
-
-```js
+// step4：创建 `router` 对象并导出
 const router = new VueRouter({
   routes // 将配置项传入
 })
 export default router
 ```
 
-- step4：在 `main.js` 中导入 router 对象
+- `main.js`
 
 ```js
 import router from './router'
-```
 
-- step5：在根组件初始化中传入 router 对象
-
-```js
 new Vue({
-  // 传入router对象
+  // 在根组件初始化中传入 router 对象
   router,
   render: h => h(App)
 }).$mount('#app')
 ```
 
-- step6：在`vue`组件中，可以通过`this.$router`拿到路由器对象
+- 在`vue`组件中，可以通过`this.$router`拿到路由器对象
 
 ### 实现自己的 `vue-router`，取名 `mvue-router`😁
 
@@ -84,14 +71,9 @@ class MVueRouter {
     // 将url中的path解析出来，根据路由配置项，可以通过path找到对应的component
     // 比如：当前window.location.hash是 "#/about"，initPath为 "/about"，对应的组件是 About
     const initPath = window.location.hash.slice(1) || '/'
-    // 利用Vue的工具方法，将initPath设置成响应式数据，取名currentPath，方便当currentPath改变时，触发对应组件渲染更新
+    // 利用Vue的工具方法，将initPath设置成响应式数据，取名currentPath
+    // 当currentPath改变时，触发对应组件渲染更新
     MVue.util.defineReactive(this, 'currentPath', initPath)
-
-    // 监听事件，更新最新的currentPath
-    // 页面path改变
-    window.addEventListener('hashchange', this.onHashChange.bind(this))
-    // 首次加载页面
-    window.addEventListener('load', this.onHashChange.bind(this))
 
     // 缓存路由映射关系，处理成下面的格式，方便后面使用
     // {
@@ -101,6 +83,12 @@ class MVueRouter {
     this.$options.routes.forEach(route => {
       this.routeMap[route.path] = route
     })
+
+    // 监听事件，更新最新的currentPath
+    // 页面path改变
+    window.addEventListener('hashchange', this.onHashChange.bind(this))
+    // 首次加载页面
+    window.addEventListener('load', this.onHashChange.bind(this))
   }
 
   onHashChange() {
@@ -125,8 +113,10 @@ MVueRouter.install = Vue => {
     }
   })
 
-  // 实现router-link组件，实际上就是对a标签的封装
-  // 使用：<router-link to="/about">关于</router-link>
+  // 实现router-link组件
+  // 使用router-link：<router-link to="/about">关于</router-link>
+  // 最终得到的dom：<a data-v-49a3a064="" href="#/about" class="">关于</a>
+  // 所以router-link，实际上就是对a标签的封装
   Vue.component('router-link', {
     props: {
       to: {
@@ -163,3 +153,5 @@ MVueRouter.install = Vue => {
   })
 }
 ```
+
+### 思考：嵌套路由如何实现？
