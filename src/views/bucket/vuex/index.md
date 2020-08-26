@@ -17,14 +17,14 @@ export default new Vuex.Store({
   },
   // mutations，提交变更：commit
   mutations: {
-    // mutations里面的方法都自带一个state参数，这个state是哪里来的？？？
+    // 问题：mutations里面的方法都自带一个state参数，这个state是哪里来的？？？
     add(state) {
       state.count++
     }
   },
   // actions，派发事件：dispatch，可执行异步操作，然后commit
   actions: {
-    // actions里面的方法都自带一个store对象作为参数，通常解构使用，这个store是哪里来的？？？
+    // 问题：actions里面的方法都自带一个store对象作为参数，通常解构使用，这个store是哪里来的？？？
     async_add({ dispatch, commit }) {
       setTimeout(() => {
         commit('add')
@@ -79,12 +79,16 @@ class Store {
     this.$options = options
 
     const state = options.state
-    // state如何响应式？因为vue对象的data是响应式的，利用vue，可以把state做成响应式数据
-    // 在实例中：this.$store.state就能访问到这里的state，this.$store.state.count，就能访问到data里面的数据
-    // 实际上是this.$store.state.data.count，由于state是vue实例，对date做了代理，所以使用this.$store.state.count即可
+    // 问题：state如何响应式？
+    // 因为vue对象的data是响应式的，可以创建一个vue对象，把store中的state赋值给它的data属性
+    // 从而使其成为响应式数据，这也是vuex只能在vue中使用的原因。
     // this.state = new MVue({
     //   data: state
     // })
+    // 在实例中：this.$store.state就能访问到这里的state对象，this.$store.state.count，
+    // 就能访问到data里面的数据
+    // 实际上是this.$store.state.data.count，由于state是vue实例，对data做了代理，
+    // 所以使用this.$store.state.count即可，这就是我们使用的方式
 
     // 直接将state暴露不是一个好方法，参考源码（https://github.com/vuejs/vuex/blob/dev/src/store.js）306行
     // 利用存取器，将state保护起来
