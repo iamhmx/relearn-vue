@@ -16,9 +16,17 @@ const bucket = {
     {
       path: '/code/defineProperty',
       name: 'defineProperty',
-      component: () => import('../views/code/defineProperty'),
+      component: () => import('../views/code/defineProperty/index.vue'),
       meta: {
         title: 'defineProperty'
+      }
+    },
+    {
+      path: '/code/mvvm',
+      name: 'mvvm',
+      component: () => import('../views/code/mvvm'),
+      meta: {
+        title: '手写一个简单的mvvm框架'
       }
     }
   ]

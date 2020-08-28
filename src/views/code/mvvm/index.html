@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mvvm</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{counter}}</p>
+    </div>
+    <script src="./mvvm.js"></script>
+    <script>
+      const app = new Mvvm({
+        el: '#app',
+        data: {
+          counter: 1
+        }
+      })
+      // 改变counter
+      setInterval(() => {
+        app.counter++
+      }, 1000)
+    </script>
+  </body>
+</html>

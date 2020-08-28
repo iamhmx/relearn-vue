@@ -29,23 +29,24 @@ export default {
 			}
 			// 对数据data进行拦截处理
 			this.observe(data)
-			data.name
-			data.address
-			data.name = 'relearnvue'
-			// console.log('data1:', data)
-			data.skill
-			data.skill.vue
-			// console.log('data2:', data)
+			// data.name
+			// data.address
+			// data.name = 'relearnvue'
+			// // console.log('data1:', data)
 			// data.skill
-			// data.author = 'hhh'
-			// data.author
-			this.$set(data, 'author', 'hhh')
+			// data.skill.vue
+			// // console.log('data2:', data)
+			// // data.skill
+			// // data.author = 'hhh'
+			// // data.author
+			// this.$set(data, 'author', 'hhh')
 			// 数组
-			data.array[0]
-			data.array[1]
-			data.array[2]
-			data.array[0] = 'xxx'
-			console.log('data：', data)
+			// data.array[0]
+			// data.array[0] = 'xxx'
+			// console.log('data：', data)
+			// data.array.push('BBB')
+
+			data.array.length = 2
 		},
 
 		/**
@@ -81,6 +82,10 @@ export default {
 					}
 				},
 			})
+		},
+
+		set(obj, key, val) {
+			this.defineReactive(obj, key, val)
 		},
 	},
 }

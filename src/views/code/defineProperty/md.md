@@ -12,9 +12,12 @@ function testApi() {
   let data = {
     name: '重学vue',
     address: 'https://relearnvue.com',
+    // 对象属性
     skill: {
       vue: 'aaa'
-    }
+    },
+    // 数组属性
+    array: ['aaa', 'bbb', 'ccc']
   }
   // 对数据data进行拦截处理
   this.observe(data)
@@ -98,4 +101,26 @@ data.author
 this.$set(data, 'author', 'hhh')
 ```
 
-###
+### 操作数组
+
+- 先看一下 `vue` 官方对于数组响应式的说明：
+
+<img src="https://relearnvue.com/static/vue-array.png" style="width: 800px;">
+
+- 实际测试一下：
+
+```js
+// 通过索引读取和设置数组元素
+data.array[0]
+// 打印：
+// 读取array
+// 读取0
+data.array[0] = 'xxx'
+// 打印：
+// 读取array
+// 设置0： xxx
+```
+
+- 测试结果：`Object.defineProperty` 可以通过索引来对数组元素的访问进行拦截监听，在 `vue` 源码中对数组和对象的监听也是分开处理，why？尤大大的回答是：性能！
+
+<img src="https://relearnvue.com/static/vue-array-ans.png" style="width: 800px;">
