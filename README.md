@@ -23,4 +23,6 @@
   - vue-router 原理及实现
   - vuex 原理及实现
 - 响应式原理
-  - todo
+  - defineProperty
+  - 数组的响应式处理
+  - 手写一个简单的mvvm框架
