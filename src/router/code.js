@@ -22,6 +22,14 @@ const bucket = {
       }
     },
     {
+      path: '/code/array-reactive',
+      name: 'array-reactive',
+      component: () => import('../views/code/array_reactive'),
+      meta: {
+        title: '数组的响应式处理'
+      }
+    },
+    {
       path: '/code/mvvm',
       name: 'mvvm',
       component: () => import('../views/code/mvvm'),

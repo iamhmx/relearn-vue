@@ -1,6 +1,6 @@
 ### 实现目标
 
-- 在 `html` 绑定 `counter`
+- 在 `html` 中 绑定 `counter`
 - 初始化显示 `1`
 - 间隔 1s，`counter` 加 1
 
@@ -49,8 +49,8 @@
 
 Dep 只做两件事情
 
-- 收集 watcher
-- 通知更新
+- 收集 watcher（在哪里收集？）
+- 通知更新（在哪里通知更新？）
 
 ```js
 class Dep {
@@ -140,7 +140,7 @@ class Observe {
 
 ### Compile
 
-编译模板
+模板编译：遍历模板，解析出 `vue` 特有的指令、语法糖等，分别处理
 
 ```js
 class Compile {
@@ -198,3 +198,5 @@ class Compile {
   }
 }
 ```
+
+以上就实现了一个简单的 `mvvm` 框架，这也是 `vue1.x` 的实现原理，在 `vue1.x` 中，没有引入虚拟 `DOM`，当然也没有 `diff`，**这样的实现方式有什么不足吗?**

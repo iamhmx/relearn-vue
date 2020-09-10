@@ -1,4 +1,4 @@
-### vue1.x、2.x，就是利用 Object.defineProperty 来对 data 中的数据进行拦截
+### vue1.x、2.x，利用 `Object.defineProperty` 来对 `data` 中的数据进行拦截
 
 - `Object.defineProperty(obj, prop, descriptor)`
   - `obj`：传入的对象
@@ -8,29 +8,6 @@
 ### 使用 api
 
 ```js
-function testApi() {
-  let data = {
-    name: '重学vue',
-    address: 'https://relearnvue.com',
-    // 对象属性
-    skill: {
-      vue: 'aaa'
-    },
-    // 数组属性
-    array: ['aaa', 'bbb', 'ccc']
-  }
-  // 对数据data进行拦截处理
-  this.observe(data)
-
-  // 读取操作，触发get
-  // 读取单个值
-  data.name // 打印：读取name
-  data.address // 打印：读取address
-
-  // 设置操作，触发set
-  data.name = 'relearnvue' // 打印：设置name： relearnvue
-}
-
 /**
  * @description: 监测对象的每一个属性
  * @param {data：需要监测的对象}
@@ -42,7 +19,7 @@ function observe(data) {
   }
   // 遍历对象属性，对每一个属性进行属性拦截
   Object.keys(data).forEach(key => {
-    this.defineReactive(data, key, data[key])
+    defineReactive(data, key, data[key])
   })
 }
 
@@ -66,6 +43,29 @@ function defineReactive(obj, key, val) {
     }
   })
 }
+
+function testApi() {
+  let data = {
+    name: '重学vue',
+    address: 'https://relearnvue.com',
+    // 对象属性
+    skill: {
+      vue: 'aaa'
+    },
+    // 数组属性
+    array: ['aaa', 'bbb', 'ccc']
+  }
+  // 对数据data进行拦截处理
+  observe(data)
+
+  // 读取操作，触发get
+  // 读取单个值
+  data.name // 打印：读取name
+  data.address // 打印：读取address
+
+  // 设置操作，触发set
+  data.name = 'relearnvue' // 打印：设置name： relearnvue
+}
 ```
 
 ### 递归处理嵌套对象
@@ -81,7 +81,7 @@ data.skill.vue // 打印：读取skill，❌
 ```js
 function defineReactive(obj, key, val) {
   // 处理嵌套对象
-  obseve(val)
+  observe(val)
   ...
 }
 ```
@@ -94,7 +94,7 @@ data.author = 'hhh'
 data.author
 ```
 
-- 这样设置不会触发 `get()` 和 `set()`，所以直接给 `vue` 的 `data` 设置的新属性没有响应式，需要使用`$set`
+- 这样设置不会触发 `get()` 和 `set()`，所以直接给 `vue` 的 `data` 设置的新属性没有做响应式处理，需要使用`$set`
 
 ```js
 // 使用$set给新增属性做响应式
@@ -121,6 +121,6 @@ data.array[0] = 'xxx'
 // 设置0： xxx
 ```
 
-- 测试结果：`Object.defineProperty` 可以通过索引来对数组元素的访问进行拦截监听，在 `vue` 源码中对数组和对象的监听也是分开处理，why？尤大大的回答是：性能！
+- 测试结果：`Object.defineProperty` 可以通过索引来对数组元素的访问进行拦截监听，但在 `vue` 源码中对数组和对象的监听却是分开处理，why？官方回答是：**性能！**
 
 <img src="https://relearnvue.com/static/vue-array-ans.png" style="width: 800px;">
