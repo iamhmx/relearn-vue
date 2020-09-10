@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import communicationRoutes from './communication'
 import componentRoutes from './component'
 import bucketRoutes from './bucket'
-import codeRoutes from './code'
+import codeRoutes from './sourceCode'
 
 // import routes from './example'
 

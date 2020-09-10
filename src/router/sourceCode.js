@@ -5,8 +5,8 @@
 import Layout from '@/components/Layout'
 
 const bucket = {
-  path: '/code',
-  redirect: '/code/defineProperty',
+  path: '/sourcecode',
+  redirect: '/sourcecode/defineProperty',
   component: Layout,
   meta: {
     title: '响应式原理',
@@ -14,25 +14,25 @@ const bucket = {
   },
   children: [
     {
-      path: '/code/defineProperty',
+      path: '/sourcecode/defineProperty',
       name: 'defineProperty',
-      component: () => import('../views/code/defineProperty/index.vue'),
+      component: () => import('../views/sourcecode/defineProperty/index.vue'),
       meta: {
         title: 'defineProperty'
       }
     },
     {
-      path: '/code/array-reactive',
+      path: '/sourcecode/array-reactive',
       name: 'array-reactive',
-      component: () => import('../views/code/array_reactive'),
+      component: () => import('../views/sourcecode/array_reactive'),
       meta: {
         title: '数组的响应式处理'
       }
     },
     {
-      path: '/code/mvvm',
+      path: '/sourcecode/mvvm',
       name: 'mvvm',
-      component: () => import('../views/code/mvvm'),
+      component: () => import('../views/sourcecode/mvvm'),
       meta: {
         title: '手写一个简单的mvvm框架'
       }
