@@ -85,6 +85,7 @@ class Compile {
     Array.from(childNodes).forEach(node => {
       if (this.isElement(node)) {
         console.log('编译元素：', node.nodeName)
+        this.compileElement(node)
       } else if (this.isInterpolation(node)) {
         console.log('编译插值文本：', node.textContent)
         this.compileText(node)
@@ -95,19 +96,51 @@ class Compile {
     })
   }
 
-  // 类型判断
-  isElement(node) {
-    return node.nodeType === 1
+  // 编译元素节点
+  compileElement(node) {
+    const attrs = node.attributes
+    // 遍历属性，解析指令
+    Array.from(attrs).forEach(attr => {
+      const attrName = attr.name
+      const attrValue = attr.value
+      if (attrName.startsWith('v-')) {
+        // v-model、v-text、v-html等指令
+        // 例如：v-html="htmlContent"
+        // 解析出：html和htmlContent，html对应更新方法，htmlContent对应data中的值
+        const dir = attrName.substring(2)
+        // 执行
+        this[dir] && this[dir](node, attrValue)
+      } else if (attrName.startsWith('@')) {
+        // @click="clickHandle"
+        // 解析出click，给元素添加对应的事件，回调事件的名称就是clickHandle
+        const event = attrName.substring(1)
+        // 从methods里面取出方法
+        const method =
+          this.$vm.$options.methods && this.$vm.$options.methods[attrValue]
+        // 设置事件监听
+        node.addEventListener(event, method.bind(this.$vm))
+      }
+    })
   }
 
-  isInterpolation(node) {
-    return node.nodeType === 3 && /\{\{(.*)\}\}/.test(node.textContent)
-  }
-
-  // 编译
+  // 编译文本节点
   compileText(node) {
-    // node.textContent = this.$vm[RegExp.$1]
+    // 调用update，生成textUpdater方法，并执行调用
     this.update(node, RegExp.$1, 'text')
+  }
+
+  html(node, exp) {
+    // 调用update，生成htmlUpdater方法，并执行调用
+    this.update(node, exp, 'html')
+  }
+
+  model(node, exp) {
+    // 调用update，生成modelUpdater方法，并执行调用
+    this.update(node, exp, 'model')
+    // 监听事件
+    node.addEventListener('input', e => {
+      this.$vm[exp] = e.target.value
+    })
   }
 
   update(node, exp, dir) {
@@ -122,6 +155,23 @@ class Compile {
 
   textUpdater(node, val) {
     node.textContent = val
+  }
+
+  htmlUpdater(node, val) {
+    node.innerHTML = val
+  }
+
+  modelUpdater(node, val) {
+    node.value = val
+  }
+
+  // 类型判断
+  isElement(node) {
+    return node.nodeType === 1
+  }
+
+  isInterpolation(node) {
+    return node.nodeType === 3 && /\{\{(.*)\}\}/.test(node.textContent)
   }
 }
 

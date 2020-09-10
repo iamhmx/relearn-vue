@@ -1,21 +1,42 @@
 ### 实现目标
 
-- 在 `html` 中 绑定 `counter`
-- 初始化显示 `1`
-- 间隔 1s，`counter` 加 1
+- 插值绑定
+
+  - 在 `html` 中 绑定 `counter`
+  - 初始化显示 `1`
+  - 间隔 1s，`counter` 加 1
+
+- `v-html`：显示一段 `html`
+- `v-model`：实现双向绑定
+- `@click`：实现点击事件
+
+效果如下：
+
+<img src="https://relearnvue.com/static/mvvm.gif">
 
 ```HTML
 <body>
   <div id="app">
     <p>{{counter}}</p>
+    <p @click="clickHandle">{{count}}</p>
+    <p v-html="htmlContent"></p>
+    <input type="text" v-model="username" />
+    <p>{{username}}</p>
   </div>
-
-  <!-- 实现mvvm.js -->
-  <script src="./mvvm.js">
+  <script src="./mvvm.js"></script>
+  <script>
     const app = new Mvvm({
       el: '#app',
       data: {
-        counter: 1
+        counter: 1,
+        count: 0,
+        username: '我叫小红',
+        htmlContent: "<span style='color: red;'>嘻嘻</span>"
+      },
+      methods: {
+        clickHandle() {
+          this.count++
+        }
       }
     })
     // 改变counter
@@ -31,7 +52,7 @@
 ### mvvm 要做的事
 
 1. 对 `data` 数据进行响应式处理
-2. `html` 不认识双花括号，需要对 `html` 进行解析，并从 `data` 中取出对应的值，初始化页面
+2. `{{}}`、`v-model`、`v-html`、`@click`并不是原生的 `html` 标记，需要进行解析，并从 `data` 中取出对应的值，初始化页面
 3. 对 `html` 中用到的数据进行收集，当该值变化时，通知所有用到的地方进行更新
 
 为了解决上面几个问题，创建一些类来负责对应的工作：
@@ -157,10 +178,12 @@ class Compile {
     // 遍历节点，分类处理，这里只演示插值绑定类型
     const childNodes = el.childNodes
     Array.from(childNodes).forEach(node => {
-      // 插值文本
-      if (this.isInterpolation(node)) {
-        console.log('编译插值文本：', node.textContent)
-        this.compileText(node)
+      if (this.isElement(node)) {
+        // 编译元素
+        this.compileElement(node)
+      } else if (this.isInterpolation(node)) {
+        // 编译插值文本
+        this.text(node)
       }
       // 递归处理子节点
       if (node.childNodes && node.childNodes.length > 0) {
@@ -169,32 +192,89 @@ class Compile {
     })
   }
 
-  // 判断是否是插值文本，并解出key
-  isInterpolation(node) {
-    return node.nodeType === 3 && /\{\{(.*)\}\}/.test(node.textContent)
+  // 编译元素节点
+  compileElement(node) {
+    const attrs = node.attributes
+    // 遍历属性，解析指令
+    Array.from(attrs).forEach(attr => {
+      const attrName = attr.name
+      const attrValue = attr.value
+      if (attrName.startsWith('v-')) {
+        // v-model、v-text、v-html等指令
+        // 例如：v-html="htmlContent"
+        // 解析出：html和htmlContent，html对应更新方法，htmlContent对应data中的值
+        const dir = attrName.substring(2)
+        // 执行
+        this[dir] && this[dir](node, attrValue)
+      } else if (attrName.startsWith('@')) {
+        // @click="clickHandle"
+        // 解析出click，给元素添加对应的事件，回调事件的名称就是clickHandle
+        const event = attrName.substring(1)
+        // 从methods里面取出方法
+        const method =
+          this.$vm.$options.methods && this.$vm.$options.methods[attrValue]
+        // 设置事件监听
+        node.addEventListener(event, method.bind(this.$vm))
+      }
+    })
   }
 
   // 处理插值文本
-  compileText(node) {
+  text(node) {
+    // 调用update，生成textUpdater方法，并执行调用
     this.update(node, RegExp.$1, 'text')
   }
 
-  // 生成更新函数
-  update(node, key, type) {
-    // 根据类型生成更新函数，这里就是：textUpdater
-    const fn = this[type + 'Updater']
-    // 执行更新函数，初始化页面
-    fn && fn(node, this.$vm[key])
+  // 处理v-html
+  html(node, exp) {
+    // 调用update，生成htmlUpdater方法，并执行调用
+    this.update(node, exp, 'html')
+  }
 
-    // 用当前key和它的更新函数去创建watcher
-    new Watcher(this.$vm, key, val => {
+  // 处理v-model
+  model(node, exp) {
+    // 调用update，生成modelUpdater方法，并执行调用
+    this.update(node, exp, 'model')
+    // 监听事件
+    node.addEventListener('input', e => {
+      this.$vm[exp] = e.target.value
+    })
+  }
+
+  // 生成更新函数，并执行，创建对应的watcher
+  update(node, exp, dir) {
+    const fn = this[dir + 'Updater']
+    fn && fn(node, this.$vm[exp])
+
+    // 更新
+    new Watcher(this.$vm, exp, val => {
       fn && fn(node, val)
     })
   }
 
-  // 这里是最终处理插值文本更新的地方
+  // 更新函数
+  // 插值
   textUpdater(node, val) {
     node.textContent = val
+  }
+
+  // v-html
+  htmlUpdater(node, val) {
+    node.innerHTML = val
+  }
+
+  // v-model
+  modelUpdater(node, val) {
+    node.value = val
+  }
+
+  // 类型判断
+  isElement(node) {
+    return node.nodeType === 1
+  }
+
+  isInterpolation(node) {
+    return node.nodeType === 3 && /\{\{(.*)\}\}/.test(node.textContent)
   }
 }
 ```

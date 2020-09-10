@@ -46,7 +46,9 @@ export default {
 			// console.log('data：', data)
 			// data.array.push('BBB')
 
-			data.array.length = 2
+			// data.array.length = 2
+
+			data.array.push('xxxxx')
 		},
 
 		/**

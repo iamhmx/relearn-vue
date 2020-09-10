@@ -8,13 +8,25 @@
   <body>
     <div id="app">
       <p>{{counter}}</p>
+      <p @click="clickHandle">{{count}}</p>
+      <p v-html="htmlContent"></p>
+      <input type="text" v-model="username" />
+      <p>{{username}}</p>
     </div>
     <script src="./mvvm.js"></script>
     <script>
       const app = new Mvvm({
         el: '#app',
         data: {
-          counter: 1
+          counter: 1,
+          count: 0,
+          username: '我叫小红',
+          htmlContent: "<span style='color: red;'>嘻嘻</span>"
+        },
+        methods: {
+          clickHandle() {
+            this.count++
+          }
         }
       })
       // 改变counter

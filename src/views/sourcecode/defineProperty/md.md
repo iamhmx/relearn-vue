@@ -119,8 +119,16 @@ data.array[0] = 'xxx'
 // 打印：
 // 读取array
 // 设置0： xxx
+
+// 通过数组api修改数组
+data.array.push('www')
+// 打印：
+// 读取array
 ```
 
-- 测试结果：`Object.defineProperty` 可以通过索引来对数组元素的访问进行拦截监听，但在 `vue` 源码中对数组和对象的监听却是分开处理，why？官方回答是：**性能！**
+测试结果：
+
+1. `Object.defineProperty` 会把数组的索引当做 `key` 来对数组元素的访问进行拦截监听，但在 `vue` 并没有采用这个方式，why？官方回答是：**性能！**
+2. `Object.defineProperty` 监听不到通过 api 修改数组的操作
 
 <img src="https://relearnvue.com/static/vue-array-ans.png" style="width: 800px;">
