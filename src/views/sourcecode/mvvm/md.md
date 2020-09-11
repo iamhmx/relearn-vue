@@ -175,7 +175,7 @@ class Compile {
   }
 
   compile(el) {
-    // 遍历节点，分类处理，这里只演示插值绑定类型
+    // 遍历节点，分类处理
     const childNodes = el.childNodes
     Array.from(childNodes).forEach(node => {
       if (this.isElement(node)) {
@@ -211,8 +211,8 @@ class Compile {
         // 解析出click，给元素添加对应的事件，回调事件的名称就是clickHandle
         const event = attrName.substring(1)
         // 从methods里面取出方法
-        const method =
-          this.$vm.$options.methods && this.$vm.$options.methods[attrValue]
+        const methods = this.$vm.$options.methods
+        const method = methods && methods[attrValue]
         // 设置事件监听
         node.addEventListener(event, method.bind(this.$vm))
       }

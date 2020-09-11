@@ -6,7 +6,7 @@ class Mvvm {
   constructor(options) {
     this.$options = options
     this.$data = options.data
-
+    // 数据响应式
     observe(this.$data)
     proxy(this)
 
