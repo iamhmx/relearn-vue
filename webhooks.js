@@ -34,6 +34,6 @@ function run_cmd(cmd, args, cb) {
   const child = spawn(cmd, args)
   let res = ''
 
-  child.stdout.on('data', buffer => (res += buffer))
+  child.stdout.on('data', buffer => (res += buffer.toString()))
   child.stdout.on('end', () => cb(res))
 }
