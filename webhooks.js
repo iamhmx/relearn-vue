@@ -1,10 +1,10 @@
-const http = require('http')
-const createHandler = require('github-webhook-handler')
-const handler = createHandler({ path: '/webhooks', secret: 'relearnvuehahaha' })
+var http = require('http')
+var createHandler = require('github-webhook-handler')
+var handler = createHandler({ path: '/webhooks', secret: 'relearnvuehahaha' })
 
 http
-  .createServer((req, res) => {
-    handler(req, res, err => {
+  .createServer(function(req, res) {
+    handler(req, res, function(err) {
       res.statusCode = 404
       res.end('no such location')
     })
@@ -13,16 +13,17 @@ http
     console.log('Webhooks Listen at 6519')
   })
 
-handler.on('error', err => console.error('Error：', err.message))
+handler.on('error', function(err) {
+  console.error('Error：', err.message)
+})
 
-handler.on('push', event => {
-  const { payload } = event
+handler.on('push', function(event) {
   console.log(
     '接收到一个push事件，for %s to %s：',
-    payload.repository.name,
-    payload.ref
+    event.payload.repository.name,
+    event.payload.ref
   )
-  if (payload.ref === 'refs/heads/master') {
+  if (event.payload.ref === 'refs/heads/master') {
     console.log('deploy master branch')
     run_cmd('sh', ['./deploy-dev.sh'], text => console.log(text))
   }
