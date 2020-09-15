@@ -83,8 +83,10 @@ npm install
 npm run build
 ```
 
-- 执行 push 后，webhook 服务会自动拉取最新代码，然后打包最新资源，用`Nginx`部署不需要重启，网址随即更新
+- 执行 `push` 后，`webhook` 服务会自动拉取最新代码，然后打包最新资源，用 `Nginx` 部署不需要重启，网址随即更新
 
 ```shell
 $ git add -A && git commit -m '[cicd]test cicd' && git push origin master
 ```
+
+<img src="https://relearnvue.com/static/webhook3.png">
