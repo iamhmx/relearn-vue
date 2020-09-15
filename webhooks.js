@@ -23,7 +23,10 @@ handler.on('push', function(event) {
     event.payload.repository.name,
     event.payload.ref
   )
-  if (event.payload.ref === 'refs/heads/master') {
+  if (
+    event.payload.ref === 'refs/heads/master' &&
+    event.payload.head_commit.message.startsWith('[cicd]')
+  ) {
     console.log('deploy master branch')
     run_cmd('sh', ['./deploy-dev.sh'], text => console.log(text))
   }
