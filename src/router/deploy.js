@@ -28,6 +28,14 @@ const bucket = {
       meta: {
         title: '持续集成'
       }
+    },
+    {
+      path: '/deploy/docker',
+      name: 'docker',
+      component: () => import('../views/deploy/docker/index.vue'),
+      meta: {
+        title: 'Docker部署'
+      }
     }
   ]
 }
