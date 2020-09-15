@@ -5,6 +5,7 @@ import communicationRoutes from './communication'
 import componentRoutes from './component'
 import bucketRoutes from './bucket'
 import codeRoutes from './sourceCode'
+import deployRoutes from './deploy'
 
 // import routes from './example'
 
@@ -19,6 +20,7 @@ const routes = [
   componentRoutes,
   bucketRoutes,
   codeRoutes,
+  deployRoutes,
   {
     path: '*',
     component: () => import('../views/404.vue')
