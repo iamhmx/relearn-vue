@@ -66,6 +66,10 @@
 
 <img src="https://relearnvue.com/static/mvvm.png" style="width: 800px;">
 
+### Watcher/Dep 关系图：
+
+<img src="https://relearnvue.com/static/watcher-dep.png">
+
 ### Dep
 
 Dep 只做两件事情

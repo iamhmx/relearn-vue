@@ -36,6 +36,14 @@ const bucket = {
       meta: {
         title: '手写一个简单的mvvm框架'
       }
+    },
+    {
+      path: '/sourcecode/v2',
+      name: 'v2',
+      component: () => import('../views/sourcecode/v2'),
+      meta: {
+        title: 'vue2.0响应式改进'
+      }
     }
   ]
 }
