@@ -5,6 +5,7 @@ import communicationRoutes from './communication'
 import componentRoutes from './component'
 import bucketRoutes from './bucket'
 import codeRoutes from './sourceCode'
+import flushRoutes from './flush'
 import deployRoutes from './deploy'
 
 // import routes from './example'
@@ -20,6 +21,7 @@ const routes = [
   componentRoutes,
   bucketRoutes,
   codeRoutes,
+  flushRoutes,
   deployRoutes,
   {
     path: '*',
