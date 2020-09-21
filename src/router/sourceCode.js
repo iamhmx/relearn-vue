@@ -34,7 +34,7 @@ const bucket = {
       name: 'mvvm',
       component: () => import('../views/sourcecode/mvvm'),
       meta: {
-        title: '手写一个简单的mvvm框架'
+        title: '手写一个mvvm框架'
       }
     },
     {
@@ -42,7 +42,7 @@ const bucket = {
       name: 'v2',
       component: () => import('../views/sourcecode/v2'),
       meta: {
-        title: 'vue2.0响应式改进'
+        title: 'vue2.0响应式变化'
       }
     }
   ]

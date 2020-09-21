@@ -20,6 +20,14 @@ const bucket = {
       meta: {
         title: '事件循环'
       }
+    },
+    {
+      path: '/flush/nextTick',
+      name: 'nextTick',
+      component: () => import('../views/flush/nextTick/index.vue'),
+      meta: {
+        title: 'nextTick'
+      }
     }
   ]
 }
