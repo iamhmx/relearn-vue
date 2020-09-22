@@ -25,4 +25,13 @@
 - 响应式原理
   - defineProperty
   - 数组的响应式处理
-  - 手写一个简单的mvvm框架
+  - 手写一个简单的 mvvm 框架
+  - vue2.0 响应式变化
+- 异步更新策略
+  - 事件循环
+  - nextTick
+  - 虚拟 Dom 与 Diff
+- 部署与持续集成
+  - Nginx 部署静态资源
+  - 持续集成
+  - Docker 部署

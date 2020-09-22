@@ -28,6 +28,14 @@ const bucket = {
       meta: {
         title: 'nextTick'
       }
+    },
+    {
+      path: '/flush/vnode_diff',
+      name: 'vnode_diff',
+      component: () => import('../views/flush/vnode_diff/index.vue'),
+      meta: {
+        title: '虚拟Dom与Diff'
+      }
     }
   ]
 }
