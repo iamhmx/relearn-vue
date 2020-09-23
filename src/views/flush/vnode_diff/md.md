@@ -19,7 +19,7 @@ console.log(app.$options.render)
 
 编译模板，生成 `render` 方法：
 
-```
+```js
 ƒ anonymous(
 ) {
 with(this){return _c('div',{attrs:{"id":"app"}},[_c('h1',[_v("虚拟Dom")]),_v(" "),_c('p',[_v(_s(name))])])}

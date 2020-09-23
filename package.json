@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "async-validator": "^3.3.0",
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "github-webhook-handler": "^1.0.0",
     "node-sass": "^4.14.1",

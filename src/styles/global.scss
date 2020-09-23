@@ -46,70 +46,53 @@ pre {
     font-weight: 600;
   }
 
-  .rl-html {
-    ::before {
-      content: 'html';
-      position: absolute;
-      top: 0;
-      right: 0;
-      color: #ccc;
-      text-align: right;
-      font-size: 1em;
-      padding: 5px 10px 0;
-      line-height: 15px;
-      height: 15px;
-      font-weight: 600;
-    }
-  }
+  // .rl-html {
+  //   ::before {
+  //     content: 'html';
+  //     position: absolute;
+  //     top: 0;
+  //     right: 0;
+  //     color: #ccc;
+  //     text-align: right;
+  //     font-size: 1em;
+  //     padding: 5px 10px 0;
+  //     line-height: 15px;
+  //     height: 15px;
+  //     font-weight: 600;
+  //   }
+  // }
 
-  .rl-js {
-    &::before {
-      content: 'JS';
-      position: absolute;
-      top: 0;
-      right: 0;
-      color: #ccc;
-      text-align: right;
-      font-size: 1em;
-      padding: 5px 10px 0;
-      line-height: 15px;
-      height: 15px;
-      font-weight: 600;
-    }
-  }
+  // .rl-js {
+  //   &::before {
+  //     content: 'JS';
+  //     position: absolute;
+  //     top: 0;
+  //     right: 0;
+  //     color: #ccc;
+  //     text-align: right;
+  //     font-size: 1em;
+  //     padding: 5px 10px 0;
+  //     line-height: 15px;
+  //     height: 15px;
+  //     font-weight: 600;
+  //   }
+  // }
 }
 
-.rl-comment {
-  color: #707070;
-}
+// .rl-comment {
+//   color: #707070;
+// }
 
-.rl-tag {
-  color: $tag-color;
-}
+// .rl-tag {
+//   color: $tag-color;
+// }
 
-.rl-string {
-  color: $string-color;
-}
+// .rl-string {
+//   color: $string-color;
+// }
 
-.rl-keyword {
-  color: $keyword;
-}
-
-// .markdown-body {
-//     margin-bottom: 20px !important;
-
-//     pre {
-//         background: #f8f8f8 !important;
-//         padding: 30px !important;
-//     }
-
-//     code {
-//         font-family: "Roboto Mono", Monaco, courier, monospace !important;
-//     }
-
-//     .markdown-it-vue-alert-icon {
-//         top: 10px;
-//     }
+// .rl-keyword {
+//   color: $keyword;
 // }
 
 .rl-show-area {
