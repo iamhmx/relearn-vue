@@ -31,6 +31,8 @@
   - 事件循环
   - nextTick
   - 虚拟 Dom 与 Diff
+- webpack
+  - 打包原理及实现
 - 部署与持续集成
   - Nginx 部署静态资源
   - 持续集成
