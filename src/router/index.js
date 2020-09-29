@@ -6,6 +6,7 @@ import componentRoutes from './component'
 import bucketRoutes from './bucket'
 import codeRoutes from './sourceCode'
 import flushRoutes from './flush'
+import webpackRoutes from './webpack'
 import deployRoutes from './deploy'
 
 // import routes from './example'
@@ -22,6 +23,7 @@ const routes = [
   bucketRoutes,
   codeRoutes,
   flushRoutes,
+  webpackRoutes,
   deployRoutes,
   {
     path: '*',
