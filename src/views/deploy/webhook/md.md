@@ -21,7 +21,7 @@ var http = require('http')
 // 使用github-webhook-handler处理webhook
 var createHandler = require('github-webhook-handler')
 // 创建handler实例，这里的path和secret要和github上保持一致
-var handler = createHandler({ path: '/webhooks', secret: 'relearnvuehahaha' })
+var handler = createHandler({ path: '/webhooks', secret: '123456' })
 
 // 创建server，监听端口
 http
