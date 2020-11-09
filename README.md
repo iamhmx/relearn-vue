@@ -1,6 +1,6 @@
 # 重学 vue
 
-<img src="https://relearnvue.com/static/logo.svg" style="width: 70%">
+<img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-eewtwzjb1bxvad91bd/ed783280-2269-11eb-8ff1-d5dcf8779628.svg" style="width: 70%">
 
 #### vue 学习项目，包含组件通信、组件化、全家桶、响应式等内容，持续更新，欢迎 pr。
 

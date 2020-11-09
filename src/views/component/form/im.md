@@ -1,26 +1,27 @@
-### 从内到外实现，先实现form-input组件：
-1. MFormInput需要和model数据的值进行双向绑定，需要实现v-model
-2. 接收类似input标签的属性，比如：type、placeholder
+### 从内到外实现，先实现 `form-input` 组件：
+
+1. `MFormInput` 需要和 `model` 数据的值进行双向绑定，需要实现 `v-model`
+2. 接收类似 `input` 标签的属性，比如：`type、placeholder`
 3. 当输入的值改变时，需要根据校验规则做校验
+
 ### MFormInput.vue：
+
 ```html
 <template>
   <div class="form-input-container">
     <!-- $attrs可以获取到没有申明在props中的属性，通过v-bind="$attrs"解构传给input组件 -->
-    <input class="input"
-           :value="value"
-           v-bind="$attrs"
-           @input="onInput">
+    <input class="input" :value="value" v-bind="$attrs" @input="onInput" />
   </div>
 </template>
 ```
+
 ```js
 export default {
   // 关闭attrs继承，否则$attrs收集的属性，会挂到根标签上
   inheritAttrs: false,
   props: {
     // v-model：接收一个value
-    value: String,
+    value: String
   },
   methods: {
     onInput(e) {
@@ -37,11 +38,13 @@ export default {
       //   </Col>
       // </MFormItem>
       // 如果这样$parent，就不是MFormItem了，后面再进行优化
-    },
-  },
+    }
+  }
 }
 ```
+
 ### MFormItem.vue：
+
 ```html
 <template>
   <div class="form-item-container">
@@ -51,12 +54,13 @@ export default {
       <slot></slot>
     </div>
     <!-- 显示校验错误信息 -->
-    <span class="form-item-error"
-          :style="errorStyle"
-          v-show="error">{{error}}</span>
+    <span class="form-item-error" :style="errorStyle" v-show="error"
+      >{{error}}</span
+    >
   </div>
 </template>
 ```
+
 ```js
 import Schema from 'async-validator'
 
