@@ -22,7 +22,7 @@ $ cd /etc/nginx
 $ cat nginx.conf
 ```
 
-<img src="https://relearnvue.com/static/nginxconf.png">
+<img src="http://relearnvue.com/static/nginxconf.png">
 
 - 一般不直接修改主配置文件，可以看到在配置文件的最后一行，将 `conf.d` 文件夹下面的配置文件（以 `.conf` 结尾）都 `include` 进来了，所以通常在 `conf.d` 文件夹中新增对应的配置文件
 

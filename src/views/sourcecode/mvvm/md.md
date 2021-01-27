@@ -12,7 +12,7 @@
 
 效果如下：
 
-<img src="https://relearnvue.com/static/mvvm.gif">
+<img src="http://relearnvue.com/static/mvvm.gif">
 
 ```HTML
 <body>
@@ -64,11 +64,11 @@
 
 ### 原理图：
 
-<img src="https://relearnvue.com/static/mvvm.png" style="width: 800px;">
+<img src="http://relearnvue.com/static/mvvm.png" style="width: 800px;">
 
 ### Watcher/Dep 关系图：
 
-<img src="https://relearnvue.com/static/watcher-dep.png">
+<img src="http://relearnvue.com/static/watcher-dep.png">
 
 ### Dep
 

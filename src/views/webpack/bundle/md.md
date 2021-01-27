@@ -226,4 +226,4 @@ file(code) {
 
 将这段代码，放到浏览器中执行，即可看到结果：
 
-<img src="https://relearnvue.com/static/webpack.png">
+<img src="http://relearnvue.com/static/webpack.png">

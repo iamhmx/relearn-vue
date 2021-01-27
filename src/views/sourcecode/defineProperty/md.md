@@ -105,7 +105,7 @@ this.$set(data, 'author', 'hhh')
 
 - 先看一下 `vue` 官方对于数组响应式的说明：
 
-<img src="https://relearnvue.com/static/vue-array.png" style="width: 800px;">
+<img src="http://relearnvue.com/static/vue-array.png" style="width: 800px;">
 
 - 实际测试一下：
 
@@ -131,4 +131,4 @@ data.array.push('www')
 1. `Object.defineProperty` 会把数组的索引当做 `key` 来对数组元素的访问进行拦截监听，但在 `vue` 并没有采用这个方式，why？官方回答是：**性能！**
 2. `Object.defineProperty` 监听不到通过 api 修改数组的操作
 
-<img src="https://relearnvue.com/static/vue-array-ans.png" style="width: 800px;">
+<img src="http://relearnvue.com/static/vue-array-ans.png" style="width: 800px;">

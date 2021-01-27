@@ -31,7 +31,7 @@ console.log('script end')
 
 ### 流程图
 
-<img src="https://relearnvue.com/static/eventloop.png" style="width: 100%;">
+<img src="http://relearnvue.com/static/eventloop.png" style="width: 100%;">
 
 ### 打印结果：
 

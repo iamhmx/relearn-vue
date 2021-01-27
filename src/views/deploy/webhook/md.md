@@ -7,10 +7,10 @@
 ### 配置 webhook
 
 - 添加 `webhook`
-  <img src="https://relearnvue.com/static/webhook1.png" style="width: 100%;">
+  <img src="http://relearnvue.com/static/webhook1.png" style="width: 100%;">
 
 - 配置服务器信息
-  <img src="https://relearnvue.com/static/webhook2.png" style="width: 100%;">
+  <img src="http://relearnvue.com/static/webhook2.png" style="width: 100%;">
 
 ### 编写后台服务
 
@@ -89,4 +89,4 @@ npm run build
 $ git add -A && git commit -m '[cicd]test cicd' && git push origin master
 ```
 
-<img src="https://relearnvue.com/static/webhook3.png">
+<img src="http://relearnvue.com/static/webhook3.png">
