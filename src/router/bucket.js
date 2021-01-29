@@ -22,6 +22,27 @@ const bucket = {
       }
     },
     {
+      path: '/bucket/vue-router-guard',
+      name: 'guard',
+      component: () => import('../views/bucket/vue-router-guard'),
+      meta: {
+        title: '路由守卫'
+      }
+    },
+    // {
+    //   path: '/bucket/vue-router-guard/sub/:id',
+    //   name: 'subPage',
+    //   component: () => import('../views/bucket/vue-router-guard/subPage'),
+    //   hidden: true,
+    //   meta: {
+    //     title: '路由守卫子页面'
+    //   },
+    //   beforeEnter(to, from, next) {
+    //     console.log('独享守卫，sub，beforeEnter')
+    //     next()
+    //   }
+    // },
+    {
       path: '/bucket/vuex',
       name: 'vuex',
       component: () => import('../views/bucket/vuex'),

@@ -21,6 +21,7 @@
   - 实现消息提示插件 notice
 - 全家桶
   - vue-router 原理及实现
+  - 路由守卫
   - vuex 原理及实现
 - 响应式原理
   - defineProperty

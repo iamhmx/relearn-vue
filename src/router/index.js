@@ -35,4 +35,18 @@ const router = new VueRouter({
   routes
 })
 
+// router.beforeEach((to, from, next) => {
+//   console.log(`全局守卫，${to.path}，beforeEach`)
+//   next()
+// })
+
+// router.beforeResolve((to, from, next) => {
+//   console.log(`全局守卫，${to.path}，beforeResolve`)
+//   next()
+// })
+
+// router.afterEach(to => {
+//   console.log(`全局守卫，${to.path}， afterEach`)
+// })
+
 export default router
