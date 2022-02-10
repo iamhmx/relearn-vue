@@ -12,7 +12,7 @@
     "async-validator": "^3.3.0",
     "core-js": "^3.6.5",
     "github-webhook-handler": "^1.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^9.0.1",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.3",
